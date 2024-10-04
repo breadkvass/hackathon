@@ -10,22 +10,9 @@ import EmployeesPage from "./pages/employees/employees-page";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route
-        path="/"
-        element={<LoginPage />}
-      />
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
-      <Route
-        path="/teams"
-        element={<TeamsPage />}
-      />
-      <Route
-        path="/employees"
-        element={<EmployeesPage />}
-      />
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/teams" element={<TeamsPage />} />
+      <Route path="/employees" element={<EmployeesPage />} />
     </Route>
   )
 );
