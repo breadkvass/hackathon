@@ -1,3 +1,45 @@
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Manrope-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Manrope-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Manrope-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Manrope-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/Manrope-Semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/Manrope-Semibold.woff2") format("woff2");
+}
+
 :root {
   --background-color-gray: #EFEFEF;
   --background-color-white: #FFFFFF;
@@ -5,11 +47,32 @@
   --text-color: #42434B;
   --system-error-red: #FF003F;
   --accent-normal: #E10D34;
+  --login-form-width: 360px;
+  --login-form-height: 370px;
+  --additional-not-selected: #86878C;
+  --additonal-stroke: #E0E0E0;
+  --text-h1-size: 32px; 
+  --text-h1-height: 46px; 
+  --text-h2-size: 24px; 
+  --text-h2-height: 32px;
+  --text-h3-size: 20px; 
+  --text-h3-height: 28px;
+  --text-b1-size: 16px; 
+  --text-b1-height: 24px;
+  --text-b2-size: 14px; 
+  --text-b2-height: 22px;
+  --text-b3-size: 12px; 
+  --text-b3-height: 18px;
 }
 
 body {
   margin: 0;
   color: var(--text-color);
+  font-family: 'Manrope', sans-serif;
+}
+
+input {
+  font-family: 'Manrope', sans-serif;
 }
 
 a {
