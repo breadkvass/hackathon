@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+    margin: 0 auto;
+    height: 60px;
+    background-color: var(--background-color-light-gray);
+}
+
+.content {
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    width: 117px;
+    height: 32px;
+    border-radius: 20px;
+    margin-right: auto;
+    object-fit: cover;
+    margin: 14px 0 14px 50px;
+}
