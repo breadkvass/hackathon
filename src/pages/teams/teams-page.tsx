@@ -1,7 +1,10 @@
+import Header from '../../components/header/header';
+import styles from './teams-page.module.css';
+
 function TeamsPage() {
     return (
-        <div>
-            Страница команды
+        <div className={styles.content}>
+            <Header isAuth={true} isNotifications={true} />
         </div>
     );
 }

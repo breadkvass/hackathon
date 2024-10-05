@@ -11,13 +11,71 @@
     align-items: center;
     display: flex;
     flex-direction: row;
+    justify-content: start;
 }
 
 .logo {
     width: 117px;
     height: 32px;
     border-radius: 20px;
-    margin-right: auto;
     object-fit: cover;
     margin: 14px 0 14px 50px;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 50px 0 auto;
+    gap: 12px;
+    height: 40px;
+}
+
+.headerIcon {
+    width: 24px;
+    aspect-ratio: 1 / 1;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    padding: 0 4px;
+    background-color: var(--background-color-white);
+    height: 100%;
+    border-radius: 8px;
+}
+
+.avatar {
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.name {
+    margin: 0;
+    font-size: var(--text-b3-size);
+    line-height: var(--text-b3-height);
+    font-weight: 500;
+}
+
+.notifications {
+    position: relative;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color-white);
+    height: 100%;
+    border-radius: 8px;
+}
+
+.badge {
+    width: 8px;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
