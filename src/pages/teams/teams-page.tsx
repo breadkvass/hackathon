@@ -1,10 +1,11 @@
+import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import styles from './teams-page.module.css';
 
 function TeamsPage() {
     return (
-        <div className={styles.layout}>
+        <Layout>
             <Header isAuth={true} isNotifications={true} />
             <div className={styles.content}>
                 <TabMenu />
@@ -12,7 +13,7 @@ function TeamsPage() {
                     
                 </div>
             </div>
-        </div>
+        </Layout>
     );
 }
 
