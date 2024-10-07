@@ -1,11 +1,10 @@
-import styles from './header.module.css';
+import { FC } from 'react';
 import Logo from '../../assets/images/logo.png';
 import Search from '../../assets/images/icons/search.svg';
 import Bell from '../../assets/images/icons/bell-simple.svg';
 import Avatar from '../../assets/images/avatar.jpeg';
 import Badge from '../../assets/images/icons/badge.svg';
-
-import { FC } from 'react';
+import styles from './header.module.css';
 
 type HeaderProps = {
     isAuth: boolean;
