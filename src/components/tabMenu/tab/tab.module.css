@@ -9,6 +9,7 @@
     border: 1px solid var(--additonal-stroke);
     border-radius: 8px;
     cursor: pointer;
+    background-color: var(--background-color-white);
 }
 
 .name {
