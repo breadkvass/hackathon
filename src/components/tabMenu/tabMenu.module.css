@@ -1,0 +1,9 @@
+.sidebar {
+    padding: 48px 20px 0 20px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

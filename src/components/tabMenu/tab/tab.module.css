@@ -1,0 +1,45 @@
+.button {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    border: 1px solid var(--additonal-stroke);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.name {
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 8px;
+}
+
+.checked {
+    border: none;
+    background-color: var(--text-color);
+    box-shadow: 0px 9px 28px 8px #0000000D,
+                0px 6px 16px 0px #00000014,
+                0px 3px 6px -4px #0000001F;
+
+}
+
+.checked svg:last-child path {
+    stroke: white;
+}
+
+.checked svg:first-child path {
+    fill: white;
+}
+
+.checked .name {
+    color: white;
+}
