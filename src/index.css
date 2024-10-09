@@ -41,10 +41,11 @@
 }
 
 :root {
-  --background-color-gray: #EFEFEF;
-  --background-color-white: #FFFFFF;
-  --background-color-light-gray: #F9F9F9;
-  --text-color: #42434B;
+  --color-gray: #EFEFEF;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F9F9F9;
+  --color-fill: #F6F8FA;
+  --main-color: #42434B;
   --system-error-red: #FF003F;
   --accent-normal: #E10D34;
   --additional-not-selected: #86878C;
@@ -66,7 +67,7 @@
 
 body {
   margin: 0;
-  color: var(--text-color);
+  color: var(--main-color);
   font-family: 'Manrope', sans-serif;
 }
 
@@ -76,7 +77,7 @@ input {
 
 a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--main-color);
 }
 
 ul {
