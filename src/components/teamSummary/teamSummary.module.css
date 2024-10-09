@@ -1,0 +1,16 @@
+.block {
+    display: flex;
+    flex-direction: column;
+    width: 87px;
+}
+
+.result {
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 600;   
+}
+
+.type {
+    font-size: var(--text-b3-size);
+    line-height: var(--text-b3-height);
+}

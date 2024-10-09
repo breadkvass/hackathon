@@ -3,6 +3,7 @@ import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import Plus from '../../components/icons/plus/plus';
 import TeamsSummaryContainer from '../../components/teamsSummaryContainer/teamsSummaryContainer';
+import TeamCard from '../../components/teamCard/teamCard';
 import styles from './teams-page.module.css';
 
 
@@ -24,14 +25,6 @@ const TeamsPage = () => {
                         <div className={styles.summary}>
                             <TeamsSummaryContainer number={6} type='команд' />
                             <TeamsSummaryContainer number={100} type='сотрудников' />
-                            {/* <div className={styles.sumContainer}>
-                                <p className={styles.number}>6</p>
-                                <p className={styles.type}>команд</p>
-                            </div>
-                            <div className={styles.sumContainer}>
-                                <p className={styles.number}>100</p>
-                                <p className={styles.type}>сотрудников</p>
-                            </div> */}
                         </div>
                         
                     </div>
@@ -39,7 +32,12 @@ const TeamsPage = () => {
                         
                     </div>
                     <div className={styles.cards}>
-                        
+                        <TeamCard />
+                        <TeamCard />
+                        <TeamCard />
+                        <TeamCard />
+                        <TeamCard />
+                        <TeamCard />
                     </div>
                 </div>
             </div>

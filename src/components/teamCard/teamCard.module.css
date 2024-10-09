@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 357px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.title {
+    margin: 0;
+    padding: 20px;
+    font-size: var(--text-h3-size);
+    line-height: var(--text-h3-height);
+    background-color: var(--system-background);
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 24px;
+    padding: 22px;
+    background-color: var(--color-white);
+}
