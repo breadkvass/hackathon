@@ -2,9 +2,11 @@ import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import Plus from '../../components/icons/plus/plus';
+import TeamsSummaryContainer from '../../components/teamsSummaryContainer/teamsSummaryContainer';
 import styles from './teams-page.module.css';
 
-function TeamsPage() {
+
+const TeamsPage = () => {
     return (
         <Layout>
             <Header isAuth={true} isNotifications={true} />
@@ -19,15 +21,17 @@ function TeamsPage() {
                                 Создать команду
                             </button>
                         </div>
-                        <div className={styles.bottom}>
-                            <div className={styles.sum}>
+                        <div className={styles.summary}>
+                            <TeamsSummaryContainer number={6} type='команд' />
+                            <TeamsSummaryContainer number={100} type='сотрудников' />
+                            {/* <div className={styles.sumContainer}>
                                 <p className={styles.number}>6</p>
                                 <p className={styles.type}>команд</p>
                             </div>
-                            <div className={styles.sum}>
+                            <div className={styles.sumContainer}>
                                 <p className={styles.number}>100</p>
                                 <p className={styles.type}>сотрудников</p>
-                            </div>
+                            </div> */}
                         </div>
                         
                     </div>
