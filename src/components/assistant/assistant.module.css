@@ -1,0 +1,84 @@
+.assistant {
+    position: fixed;
+    right: 8px;
+    bottom: 0;
+    width: 350px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0px 3px 6px -4px #0000001F,
+                0px 6px 16px 0px #00000014;
+}
+
+.header {
+    background-color: var(--main-color);
+    position: relative;
+}
+
+.title {
+    font-size: var(--text-h3-size);
+    line-height: var(--text-h3-height);
+    text-align: center;
+    margin: 0;
+    padding: 18px 0;
+    color: white;
+}
+
+.header button {
+    position: absolute;
+    right: 16px;
+    top: 22px;
+}
+
+.header svg path {
+    fill: white;
+}
+
+.chat {
+    height: 535px;
+    background-color: var(--color-light-gray);
+    padding: 32px 12px 14px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.texting {
+    position: relative;
+    margin: 0 auto;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+}
+
+.input {
+    width: 266px;
+    height: 22px;
+    margin: 0 auto;
+    padding: 12px 0;
+    border-radius: 8px;
+    border: 1px solid var(--additonal-stroke);
+}
+
+.inputValue {
+    width: 210px;
+    border-radius: 8px 0 0 8px;
+}
+
+.inputValue:active {
+    border-radius: 8px 0 0 8px;
+}
+
+.send {
+    background-color: var(--color-secondary-normal);
+    width: 56px;
+    border-radius: 0 8px 8px 0;
+}
+
+.texting path {
+    fill: white;
+}
+
+input:active {
+    border-radius: 8px;
+    border: 1px solid var(--main-color);
+}
