@@ -1,8 +1,9 @@
 .header {
     width: 100%;
     margin: 0 auto;
-    height: 60px;
-    background-color: var(--color-light-gray);
+    height: 64px;
+    background-color: var(--color-white);
+    margin-bottom: 16px;
 }
 
 .content {
