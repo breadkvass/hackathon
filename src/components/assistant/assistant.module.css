@@ -52,19 +52,21 @@
 
 .input {
     width: 266px;
-    height: 22px;
+    height: 23px;
     margin: 0 auto;
-    padding: 12px 0;
+    padding: 12px 12px;
     border-radius: 8px;
     border: 1px solid var(--additonal-stroke);
+    color: var(--main-color);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--main-color);
 }
 
 .inputValue {
     width: 210px;
-    border-radius: 8px 0 0 8px;
-}
-
-.inputValue:active {
     border-radius: 8px 0 0 8px;
 }
 
@@ -78,7 +80,70 @@
     fill: white;
 }
 
-input:active {
+/* .input:focus {
     border-radius: 8px;
     border: 1px solid var(--main-color);
+}
+
+.inputValue {
+    width: 210px;
+    border-radius: 8px 0 0 8px;
+}
+
+.inputValue:focus {
+    border-radius: 8px 0 0 8px;
+} */
+
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.date {
+    font-size: var(--text-b3-size);
+    line-height: var(--text-b3-height);
+    font-weight: 500;
+}
+
+.message {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: end;
+    font-size: var(--text-b3-size);
+    line-height: var(--text-b3-height);
+}
+
+.userMessage {
+    align-self: flex-end;
+}
+
+.assistMessage {
+    align-self: flex-start;
+}
+
+.assistAvatar {
+    width: 28px;
+    aspect-ratio: 1 / 1;
+}
+
+.time {
+    color: var(--additonal-not-selected);
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.userText {
+    background-color: var(--system-background);
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+.assistText {
+    background-color: var(--system-background-pink);
+    padding: 12px 16px;
+    border-radius: 8px;
 }
