@@ -1,8 +1,8 @@
 import { useState, FormEvent, useEffect, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../../components/header/header';
 import EyeIcon from '../../assets/images/icons/eye-slash.svg';
 import styles from './login-page.module.css';
-import Header from '../../components/header/header';
 
 function LoginPage() {
     const navigate = useNavigate();
