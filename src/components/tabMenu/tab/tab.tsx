@@ -14,7 +14,7 @@ type TabProps = {
 }
 
 const Tab: FC<TabProps> = ({tab, items, onClickHandler, checkedTab}) => {
-    const icon = tab === 'teams' ? <UserIcon /> : <TeamsIcon />;
+    const icon = tab === 'teams' ? <TeamsIcon /> : <UserIcon />;
     const name = tab === 'teams' ? 'Команды' : 'Сотрудники';
     const arrow = tab === checkedTab ? <RollUp /> : <UnWrap />;
     const style = tab === checkedTab ? styles.button + ' ' + styles.checked : styles.button;
