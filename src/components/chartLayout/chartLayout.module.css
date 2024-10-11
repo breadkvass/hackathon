@@ -1,0 +1,13 @@
+.container {
+    padding: 24px;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    width: min-content;
+}
+
+.type {
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 600;
+    padding-bottom: 20px;
+}
