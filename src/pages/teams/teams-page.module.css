@@ -6,7 +6,7 @@
 }
 
 .info {
-    padding: 40px 40px 0 40px;
+    padding: 16px 40px 0 40px;
     max-width: 1120px;
     width: 100%;
     display: flex;
@@ -53,12 +53,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%
+    width: 100%;
+    align-items: center;
 }
 
 .summary {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
     gap: 24px;
@@ -70,4 +72,9 @@
     flex-wrap: wrap;
     width: 100%;
     gap: 24px;
+    padding-bottom: 32px;
+}
+
+.charts {
+    width: 100%;
 }
