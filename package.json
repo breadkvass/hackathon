@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/plots": "^2.3.2",
     "@vitejs/plugin-react-swc": "^3.7.1",
+    "antd": "^5.21.3",
     "eslint-js": "github:eslint/js",
     "eslint-plugin-react": "^7.37.1",
     "react": "^18.3.1",
