@@ -1,24 +1,32 @@
-import { useState } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import Tab from './tab/tab';
 import styles from './tabMenu.module.css';
 
-const TabMenu = () => {
-    const [ checked, setCheckedTeams ]= useState<'teams' | 'employees'>('teams');
-    const items = [ 'Медиа', 'Core', 'Приложение', 'ФЛ', 'Эквайринг', 'ЮЛ']
-    
-    const employees = [ 'Акимов Роберт' ]
+type TabMenuProps = {
+    onTabClickHandler: MouseEventHandler;
+    onItemClickHandler: MouseEventHandler;
+    checkedTab: "teams" | "employees";
+}
 
-    const setChecked = (tab: 'teams' | 'employees') => {
-        if (checked !== tab) {
-            setCheckedTeams(tab)
-        };
-    }
+const TabMenu: FC<TabMenuProps> = ({onTabClickHandler, onItemClickHandler, checkedTab}) => {
+    const teams = [ 'Медиа', 'Core', 'Приложение', 'ФЛ', 'Эквайринг', 'ЮЛ'];
+    const employees = [ 'Акимов Роберт' ];
     
     return (
         <nav className={styles.sidebar}>
             <ul className={styles.list}>
-                <Tab tab={'teams'} items={items} onClickHandler={() => setChecked('teams')} checkedTab={checked} />
-                <Tab tab={'employees'} items={employees} onClickHandler={() => setChecked('employees')} checkedTab={checked} />
+                <Tab tab={'teams'}
+                    teams={teams}
+                    onTabClickHandler={onTabClickHandler}
+                    checkedTab={checkedTab}
+                    onItemClickHandler={onItemClickHandler}
+                />
+                <Tab tab={'employees'}
+                    teams={employees}
+                    onTabClickHandler={onTabClickHandler}
+                    checkedTab={checkedTab}
+                    onItemClickHandler={onItemClickHandler}
+                />
             </ul>
         </nav>
     );
