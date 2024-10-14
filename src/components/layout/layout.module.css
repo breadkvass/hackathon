@@ -1,5 +1,5 @@
 .layout {
     background-color: var(--color-fill);
     padding-bottom: 60px;
-    height: 100vh;
+    height: max-content;
 }

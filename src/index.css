@@ -46,13 +46,16 @@
   --color-light-gray: #F9F9F9;
   --color-fill: #F6F8FA;
   --main-color: #42434B;
-  --system-error-red: #FF003F;
+  --system-warning: #2F54EB;
+  --system-error: #FF003F;
+  --system-success: #00C261;
   --accent-normal: #E10D34;
   --additional-not-selected: #86878C;
   --additonal-stroke: #E0E0E0;
   --color-secondary-normal: #2E4289;
-  --system-background: #EAEEFD;
+  --system-warning-background: #EAEEFD;
   --system-background-pink: #FFE6EC;
+  --system-success-background: #E6F9EF;
   --text-h1-size: 32px; 
   --text-h1-height: 46px; 
   --text-h2-size: 24px; 
