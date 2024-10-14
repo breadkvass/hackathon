@@ -7,32 +7,32 @@ type LayoutProps = {
     children: ReactNode;
 }
 
-const Layout: FC<LayoutProps> = ({children}) => {
+const Layout: FC<LayoutProps> = ({children}) => { 
     return (
-        <ConfigProvider
-            theme={{
-                token: {
-                    colorPrimary: "#42434B",
-                    fontFamily: "Manrope",
-                    fontSize: 16,
-                    lineHeight: 1.5,
-                },
-                components: {
-                    Tabs: {
-                        inkBarColor: "#E10D34",
-                        itemHoverColor: "#42434B",
-                        itemSelectedColor: "#42434B",
-                        itemColor: "#86878C",
-                        cardHeight: "42px"
+            <ConfigProvider
+                theme={{
+                    token: {
+                        colorPrimary: "#42434B",
+                        fontFamily: "Manrope",
+                        fontSize: 16,
+                        lineHeight: 1.5,
+                    },
+                    components: {
+                        Tabs: {
+                            inkBarColor: "#E10D34",
+                            itemHoverColor: "#42434B",
+                            itemSelectedColor: "#42434B",
+                            itemColor: "#86878C",
+                            cardHeight: "42px"
+                        }
                     }
-                }
-            }}
-        >
-            <div className={styles.layout}>
-                {children}
-                <Assistant />
-            </div>
-        </ConfigProvider>
+                }}
+            >
+                <div className={styles.layout}>
+                    {children}
+                    <Assistant />
+                </div>
+            </ConfigProvider>
     )
 }
 

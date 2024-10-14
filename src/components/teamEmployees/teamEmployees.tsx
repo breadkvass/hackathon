@@ -1,9 +1,9 @@
 import { Select } from 'antd';
-import TableComponent from '../components/table/table';
-import { dataColumns, dataSource } from '../data/teamEmployees';
-import UnWrap from '../components/icons/unWrap/unWrap';
+import TableComponent from '../table/table';
+import { dataColumns, dataSource } from '../../data/teamEmployees';
+import UnWrap from '../icons/unWrap/unWrap';
 import styles from './teamEmployees.module.css';
-import Plus from '../components/icons/plus/plus';
+import Plus from '../icons/plus/plus';
 
 const TeamEmployees = () => {
     const handleChange = (value: string) => {

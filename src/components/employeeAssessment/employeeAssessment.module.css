@@ -8,6 +8,18 @@
 
 .summary {
     width: max-content;
+    background-color: var(--system-warning-background);
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 8px 16px;
+    color: var(--system-warning);
+    align-items: center;
+    border-radius: 8px;
+}
+
+.summary svg circle {
+    fill: var(--system-warning);
 }
 
 .assessments {

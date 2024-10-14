@@ -1,10 +1,14 @@
+import Badge from '../icons/badge/badge';
 import UnWrap from '../icons/unWrap/unWrap';
 import styles from './employeeAssessment.module.css';
 
 const EmployeeAssessment = () => {
     return (
         <div className={styles.content}>
-            <div className={styles.summary}>В процессе оценки руководителем</div>
+            <div className={styles.summary}>
+                <Badge />
+                В процессе оценки руководителем
+            </div>
             <div className={styles.assessments}>
                 <div className={styles.assessment}>
                     <p className={styles.type}>Самооценка</p>

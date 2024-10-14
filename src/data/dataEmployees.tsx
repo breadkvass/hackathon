@@ -7,7 +7,8 @@ export const dataSource = [
       grade: 'Middle',
       team: 'Медиа',
       hard: 3.81,
-      soft: 4.24
+      soft: 4.24,
+      compliance: 1.00
     },
     {
       key: '2',
@@ -17,7 +18,8 @@ export const dataSource = [
       grade: 'Middle',
       team: 'Медиа',
       hard: 3.98,
-      soft: 3.95
+      soft: 3.95,
+      compliance: 0.90
     },
     {
       key: '3',
@@ -27,7 +29,8 @@ export const dataSource = [
       grade: 'Junior',
       team: 'Медиа',
       hard: 4.16,
-      soft: 3.82
+      soft: 3.82,
+      compliance: 0.95
     },
     {
       key: '4',
@@ -37,7 +40,8 @@ export const dataSource = [
       grade: 'Senior',
       team: 'Медиа',
       hard: 4.40,
-      soft: 4.17
+      soft: 4.17,
+      compliance: 0.85
     },
     {
       key: '5',
@@ -47,7 +51,9 @@ export const dataSource = [
       grade: 'Middle',
       team: 'Медиа',
       hard: 3.69,
-      soft: 4.37
+      soft: 4.37,
+      compliance: 0.80
+
     },
   ];
   
