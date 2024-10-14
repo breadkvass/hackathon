@@ -46,7 +46,6 @@ function LoginPage() {
         e.stopPropagation();
         e.preventDefault();
         loginUser(emailValue, passwordValue);
-        console.log('submit');
         navigate('/teams');
     }
 

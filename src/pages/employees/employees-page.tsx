@@ -21,7 +21,6 @@ function EmployeesPage() {
     const checkInfo = (e: ChangeEvent<HTMLButtonElement>) => {
         if (selectedInfo !== e.target.textContent) {
             setSelectedInfo(e.target.textContent as string);
-            console.log(e.target.textContent);
         }
     }
     return (

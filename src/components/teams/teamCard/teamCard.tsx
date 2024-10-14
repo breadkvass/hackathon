@@ -16,7 +16,6 @@ type Team = {
 }
 
 const TeamCard: FC<TeamCardProps> = ({team}) => {
-    console.log(team.name)
     return (
         <div className={styles.card}>
             <h3 className={styles.title}>{team.name}</h3>
