@@ -3,12 +3,13 @@ import Tab from './tab/tab';
 import styles from './tabMenu.module.css';
 
 type TabMenuProps = {
-    onTabClickHandler: MouseEventHandler;
+    onTeamsClickHandler: MouseEventHandler;
+    onEmployeesClickHandler: MouseEventHandler;
     onItemClickHandler: MouseEventHandler;
     checkedTab: "teams" | "employees";
 }
 
-const TabMenu: FC<TabMenuProps> = ({onTabClickHandler, onItemClickHandler, checkedTab}) => {
+const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler,onEmployeesClickHandler, onItemClickHandler, checkedTab}) => {
     const teams = [ 'Медиа', 'Core', 'Приложение', 'ФЛ', 'Эквайринг', 'ЮЛ'];
     const employees = [ 'Акимов Роберт' ];
     
@@ -16,14 +17,14 @@ const TabMenu: FC<TabMenuProps> = ({onTabClickHandler, onItemClickHandler, check
         <nav className={styles.sidebar}>
             <ul className={styles.list}>
                 <Tab tab={'teams'}
-                    teams={teams}
-                    onTabClickHandler={onTabClickHandler}
+                    items={teams}
+                    onTabClickHandler={onTeamsClickHandler}
                     checkedTab={checkedTab}
                     onItemClickHandler={onItemClickHandler}
                 />
                 <Tab tab={'employees'}
-                    teams={employees}
-                    onTabClickHandler={onTabClickHandler}
+                    items={employees}
+                    onTabClickHandler={onEmployeesClickHandler}
                     checkedTab={checkedTab}
                     onItemClickHandler={onItemClickHandler}
                 />

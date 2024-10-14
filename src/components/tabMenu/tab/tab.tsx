@@ -7,13 +7,13 @@ import styles from './tab.module.css';
 
 type TabProps = {
     tab: 'teams' | 'employees';
-    teams: string[];
+    items: string[];
     onTabClickHandler: MouseEventHandler;
     checkedTab: 'teams' | 'employees';
     onItemClickHandler: MouseEventHandler;
 }
 
-const Tab: FC<TabProps> = ({tab, teams, onTabClickHandler, checkedTab, onItemClickHandler}) => {
+const Tab: FC<TabProps> = ({tab, items, onTabClickHandler, checkedTab, onItemClickHandler}) => {
     const icon = tab === 'teams' ? <TeamsIcon /> : <UserIcon />;
     const name = tab === 'teams' ? 'Команды' : 'Сотрудники';
     const arrow = tab === checkedTab ? <RollUp /> : <UnWrap />;
@@ -29,9 +29,9 @@ const Tab: FC<TabProps> = ({tab, teams, onTabClickHandler, checkedTab, onItemCli
             </button>
             {checkedTab === tab &&
                 <ul className={styles.items}>
-                    {teams.map((item, i) =>
+                    {items.map((item, i) =>
                         <li className={styles.item} key={i}>
-                            <button className={styles.button} onClick={onItemClickHandler}><p className={styles.name}>{item}</p></button>
+                            <button className={styles.button} onClick={onItemClickHandler} name={item}><p className={styles.name}>{item}</p></button>
                         </li>
                     )}
                 </ul>
