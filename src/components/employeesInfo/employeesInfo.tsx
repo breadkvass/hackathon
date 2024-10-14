@@ -9,6 +9,7 @@ import SummaryContainer from '../summaryContainer/summaryContainer';
 import EmployeeAssessment from '../employeeAssessment/employeeAssessment';
 import styles from './employeesInfo.module.css';
 import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
+import { dataColumns, dataSource } from '../../data/dataEmployees';
 
 type CheckedEmplyeeInfoProps = {
     checkedEmployee: string;
@@ -66,7 +67,7 @@ const AllEmployeesInfo = () => {
                 </div>
             </div>
             <div className={styles.table}>
-                <TableComponent />
+                <TableComponent data={dataSource} columns={dataColumns}/>
             </div>
         </div>
     )

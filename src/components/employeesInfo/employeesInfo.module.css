@@ -84,3 +84,7 @@ input::placeholder {
     width: 100%;
     gap: 24px;
 }
+
+.table {
+    width: 100%;
+}
