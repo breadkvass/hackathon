@@ -1,5 +1,6 @@
 .layout {
     background-color: var(--color-fill);
     padding-bottom: 60px;
-    height: max-content;
+    min-height: calc(100vh - 60px);
+    max-height: max-content;
 }
