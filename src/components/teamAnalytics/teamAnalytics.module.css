@@ -1,0 +1,14 @@
+.title {
+    padding: 32px 0 24px 0;
+    font-size: var(--text-h3-size);
+    line-height: var(--text-h3-height);
+    font-weight: 600;
+    margin: 0;
+}
+
+.graphics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}

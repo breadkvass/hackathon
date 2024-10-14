@@ -12,7 +12,7 @@
     padding: 20px;
     font-size: var(--text-h3-size);
     line-height: var(--text-h3-height);
-    background-color: var(--system-background);
+    background-color: var(--system-warning-background);
 }
 
 .info {

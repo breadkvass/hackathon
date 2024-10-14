@@ -2,9 +2,9 @@ import { dataDynamics, dataSkillsAssessment, dataStress } from '../../data/data'
 import BarChart from '../barChart/barChart';
 import ColumnChart from '../columnChart/columnChart';
 import LineChart from '../lineChart/lineChart';
-import styles from './analytics.module.css';
+import styles from './teamAnalytics.module.css';
 
-const Analytics = () => {
+const TeamAnalytics = () => {
 
     return (
         <div className={styles.analytics}>
@@ -22,7 +22,6 @@ const Analytics = () => {
                     <LineChart
                         type='Уровень стресса'
                         value={dataStress}
-                        // colors={['#EB4869']}
                         maxY={5}
                         width={312}
                     />
@@ -39,4 +38,4 @@ const Analytics = () => {
     )
 }
 
-export default Analytics;
+export default TeamAnalytics;

@@ -3,7 +3,8 @@ import { Tabs } from 'antd';
 import Plus from '../../components/icons/plus/plus';
 import SummaryContainer from '../summaryContainer/summaryContainer';
 import TeamCard from '../../components/teamCard/teamCard';
-import Analytics from '../../components/analytics/analytics';
+import TeamAnalytics from '../teamAnalytics/teamAnalytics';
+import TeamEmployees from '../../teamEmployees/teamEmployees';
 import styles from './teamsInfo.module.css';
 
 type CheckedTeamInfoProps = {
@@ -56,7 +57,7 @@ const CheckedTeamInfo: FC<CheckedTeamInfoProps> = ({checkedTeam}) => {
           key: "1",
           label: "Аналитика",
           children:
-            <Analytics />,
+            <TeamAnalytics />,
         },
         {
           key: "2",
@@ -66,7 +67,7 @@ const CheckedTeamInfo: FC<CheckedTeamInfoProps> = ({checkedTeam}) => {
         {
             key: "3",
             label: "Сотрудники",
-            children: <>Сотрудники</>,
+            children: <TeamEmployees />,
           },
       ];
     
