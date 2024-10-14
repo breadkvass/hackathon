@@ -2,15 +2,15 @@ import { FC } from 'react';
 import { Input } from "antd";
 import { Tabs } from 'antd';
 import { Select } from 'antd';
-import SearcIcon from '../icons/loupe/loupe';
-import UnWrap from '../icons/unWrap/unWrap';
-import TableComponent from '../table/table';
-import SummaryContainer from '../summaryContainer/summaryContainer';
+import SearchIcon from '../../icons/loupe/loupe';
+import UnWrap from '../../icons/unWrap/unWrap';
+import TableComponent from '../../table/table';
+import SummaryContainer from '../../summaryContainer/summaryContainer';
 import EmployeeAssessment from '../employeeAssessment/employeeAssessment';
 import styles from './employeesInfo.module.css';
 import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
-import { dataColumns, dataSource } from '../../data/dataEmployees';
-import IPR from '../IPR/IPR';
+import { dataSource, dataColumns } from '../../../data/dataEmployees';
+import IPR from '../../IPR/IPR';
 
 type CheckedEmplyeeInfoProps = {
     checkedEmployee: string;
@@ -42,7 +42,7 @@ const AllEmployeesInfo = () => {
                     <p className={styles.sum}>100</p>
                 </div>
                 <div className={styles.filter}>
-                    <Input className={styles.search} placeholder="Поиск" prefix={<SearcIcon />} />
+                    <Input className={styles.search} placeholder="Поиск" prefix={<SearchIcon />} />
                     <Select
                         suffixIcon={<UnWrap />}
                         className={styles.dropdown}

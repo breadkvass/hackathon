@@ -1,7 +1,7 @@
-import { dataDynamics, dataSkillsAssessment, dataStress } from '../../data/data';
-import BarChart from '../barChart/barChart';
-import ColumnChart from '../columnChart/columnChart';
-import LineChart from '../lineChart/lineChart';
+import { dataDynamics, dataSkillsAssessment, dataStress } from '../../../data/data';
+import BarChart from '../../charts/barChart/barChart';
+import ColumnChart from '../../charts/columnChart/columnChart';
+import LineChart from '../../charts/lineChart/lineChart';
 import styles from './teamAnalytics.module.css';
 
 const TeamAnalytics = () => {

@@ -1,5 +1,5 @@
-import Badge from '../icons/badge/badge';
-import UnWrap from '../icons/unWrap/unWrap';
+import Badge from '../../icons/badge/badge';
+import UnWrap from '../../icons/unWrap/unWrap';
 import styles from './employeeAssessment.module.css';
 
 const EmployeeAssessment = () => {

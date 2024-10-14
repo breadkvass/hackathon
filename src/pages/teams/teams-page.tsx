@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
-import TeamsInfo from '../../components/teamsInfo/teamsInfo';
+import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
 import { ConfigProvider } from 'antd';
 import { useNavigate } from 'react-router-dom';

@@ -1,7 +1,6 @@
-import { dataCompliance, dataHard, dataSoft } from '../../data/data';
-import BarChart from '../barChart/barChart';
-import ColumnChart from '../columnChart/columnChart';
-import { dataEmployeeAssessment } from '../../data/data';
+import { dataCompliance, dataHard, dataSoft, dataEmployeeAssessment } from '../../../data/data';
+import BarChart from '../../charts/barChart/barChart';
+import ColumnChart from '../../charts/columnChart/columnChart';
 import styles from './employeeAnalytics.module.css';
 
 const EmployeeAnalytics = () => {

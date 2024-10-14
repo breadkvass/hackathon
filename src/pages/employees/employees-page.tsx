@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../../components/layout/layout";
 import Header from "../../components/header/header";
 import TabMenu from "../../components/tabMenu/tabMenu";
-import EmployessInfo from "../../components/employeesInfo/employeesInfo";
+import EmployessInfo from "../../components/employees/employeesInfo/employeesInfo";
 import styles from './employees-page.module.css';
 
 function EmployeesPage() {

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-// import Info from '../../assets/images/icons/info.svg';
 import Info from '../icons/info/info';
 import Badge from '../icons/badge/badge';
 import styles from './summaryContainer.module.css';

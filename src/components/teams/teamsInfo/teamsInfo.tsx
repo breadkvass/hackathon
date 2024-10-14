@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Tabs } from 'antd';
-import Plus from '../../components/icons/plus/plus';
-import SummaryContainer from '../summaryContainer/summaryContainer';
-import TeamCard from '../../components/teamCard/teamCard';
+import Plus from '../../icons/plus/plus';
+import SummaryContainer from '../../summaryContainer/summaryContainer';
+import TeamCard from '../teamCard/teamCard';
 import TeamAnalytics from '../teamAnalytics/teamAnalytics';
 import TeamEmployees from '../teamEmployees/teamEmployees';
 import styles from './teamsInfo.module.css';
@@ -24,7 +24,7 @@ const TeamsInfo: FC<TeamsInfoProps> = ({checkedInfo}) => {
 }
 
 const AllTeamsInfo = () => {
-    
+
     return (
         <div className={styles.info}>
             <div className={styles.desc}>
