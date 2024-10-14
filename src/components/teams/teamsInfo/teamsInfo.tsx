@@ -5,8 +5,8 @@ import SummaryContainer from '../../summaryContainer/summaryContainer';
 import TeamCard from '../teamCard/teamCard';
 import TeamAnalytics from '../teamAnalytics/teamAnalytics';
 import TeamEmployees from '../teamEmployees/teamEmployees';
-import styles from './teamsInfo.module.css';
 import { TeamsContext } from '../../../utils/context';
+import styles from './teamsInfo.module.css';
 
 type SelectedTeamInfoProps = {
     selectedTeam: string;
@@ -80,7 +80,7 @@ const SelectedTeamInfo: FC<SelectedTeamInfoProps> = ({selectedTeam}) => {
         {
             key: "3",
             label: "Сотрудники",
-            children: <TeamEmployees />,
+            children: <TeamEmployees team={team}/>,
           },
       ];
     
