@@ -1,5 +1,4 @@
 import { Bar } from '@ant-design/plots';
-import { dataSkillsAssessment } from '../../data/data';
 import ChartLayout from '../chartLayout/chartLayout';
 import { FC } from 'react';
 
@@ -11,13 +10,13 @@ type BarChartProps = {
     width?: number;
 }
 
-const BarChart: FC<BarChartProps> = ({type}) => {
+const BarChart: FC<BarChartProps> = ({type, value, width}) => {
     const config = {
-        data: dataSkillsAssessment,
+        data: value,
         xField: 'person',
         yField: 'assessment',
         colorField: 'skills',
-        width: 686,
+        width: width,
         group: true,
         style: {
             inset: 0,
