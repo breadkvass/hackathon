@@ -12,18 +12,18 @@ import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
 import { dataSource, dataColumns } from '../../../data/dataEmployees';
 import IPR from '../../IPR/IPR';
 
-type CheckedEmplyeeInfoProps = {
-    checkedEmployee: string;
+type SelectedEmplyeeInfoProps = {
+    selectedEmployee: string;
 }
 
 type EmployessInfoProps = {
-    checkedInfo: string;
+    selectedInfo: string;
 }
 
-const EmployessInfo: FC<EmployessInfoProps> = ({checkedInfo}) => {
+const EmployessInfo: FC<EmployessInfoProps> = ({selectedInfo}) => {
     return (
         <>
-        {!checkedInfo ? <AllEmployeesInfo /> : <CheckedEmployeeInfo checkedEmployee={checkedInfo} />}
+        {!selectedInfo ? <AllEmployeesInfo /> : <SelectedEmployeeInfo selectedEmployee={selectedInfo} />}
         </>
     )
 }
@@ -74,7 +74,7 @@ const AllEmployeesInfo = () => {
     )
 }
 
-const CheckedEmployeeInfo: FC<CheckedEmplyeeInfoProps> = ({checkedEmployee}) => {
+const SelectedEmployeeInfo: FC<SelectedEmplyeeInfoProps> = ({selectedEmployee}) => {
     const tabList = [
         {
           key: "1",
@@ -97,7 +97,7 @@ const CheckedEmployeeInfo: FC<CheckedEmplyeeInfoProps> = ({checkedEmployee}) => 
         <div className={styles.info}>
             <div className={styles.desc}>
                 <div className={styles.top}>
-                    <h1 className={styles.title}>{checkedEmployee}</h1>
+                    <h1 className={styles.title}>{selectedEmployee}</h1>
                 </div>
                 <div className={styles.summary}>
                     <SummaryContainer result={'Дизайнер'} type='Должность' factor={false}/>

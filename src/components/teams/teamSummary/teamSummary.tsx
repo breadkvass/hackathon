@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './teamSummary.module.css';
 
 type TeamSummaryProps = {
-    number: number;
+    number: string | number;
     type: string;
 }
 

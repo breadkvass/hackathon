@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Tabs } from 'antd';
 import Plus from '../../icons/plus/plus';
 import SummaryContainer from '../../summaryContainer/summaryContainer';
@@ -6,24 +6,26 @@ import TeamCard from '../teamCard/teamCard';
 import TeamAnalytics from '../teamAnalytics/teamAnalytics';
 import TeamEmployees from '../teamEmployees/teamEmployees';
 import styles from './teamsInfo.module.css';
+import { TeamsContext } from '../../../utils/context';
 
-type CheckedTeamInfoProps = {
-    checkedTeam: string;
+type SelectedTeamInfoProps = {
+    selectedTeam: string;
 }
 
 type TeamsInfoProps = {
-    checkedInfo: string;
+    selectedInfo: string;
 }
 
-const TeamsInfo: FC<TeamsInfoProps> = ({checkedInfo}) => {
+const TeamsInfo: FC<TeamsInfoProps> = ({selectedInfo}) => {
     return (
         <>
-        {!checkedInfo ? <AllTeamsInfo /> : <CheckedTeamInfo checkedTeam={checkedInfo} />}
+        {!selectedInfo ? <AllTeamsInfo /> : <SelectedTeamInfo selectedTeam={selectedInfo} />}
         </>
     )
 }
 
 const AllTeamsInfo = () => {
+    const [teams] = useContext(TeamsContext);
 
     return (
         <div className={styles.info}>
@@ -36,29 +38,39 @@ const AllTeamsInfo = () => {
                     </button>
                 </div>
                 <div className={styles.summary}>
-                    <SummaryContainer result={6} type='команд' factor={false} />
+                    <SummaryContainer result={teams.length} type='команд' factor={false} />
                     <SummaryContainer result={100} type='сотрудников' factor={false} />
                 </div>
             </div>
             <div className={styles.cards}>
-                <TeamCard />
-                <TeamCard />
-                <TeamCard />
-                <TeamCard />
-                <TeamCard />
-                <TeamCard />
+                {teams.map(team => <TeamCard key={team.id} team={team}/>)}
             </div>
         </div>
     )
 }
 
-const CheckedTeamInfo: FC<CheckedTeamInfoProps> = ({checkedTeam}) => {
-    const tabList = [
+const SelectedTeamInfo: FC<SelectedTeamInfoProps> = ({selectedTeam}) => {
+    const [ teams ] = useContext(TeamsContext);
+    const team = teams.find(team => team.name === selectedTeam);
+    const employeeCount = team?.employee_count;
+
+    const countAverageAssessment = () => {
+        if (team && employeeCount) {
+           return team.employees
+                .map(employee => employee.competence)
+                .map(competence => ( Number( ((competence.hard_skills + competence.soft_skills)/2).toFixed(2)) ) )
+                .reduce((a, b) => a+b) / employeeCount
+        } else new Error('Ошибка вычисления средней оценки')
+    }
+    
+    const averageAssessment = countAverageAssessment()?.toFixed(2);
+
+    const tabList = team && [
         {
           key: "1",
           label: "Аналитика",
           children:
-            <TeamAnalytics />,
+            <TeamAnalytics team={team}/>,
         },
         {
           key: "2",
@@ -76,16 +88,18 @@ const CheckedTeamInfo: FC<CheckedTeamInfoProps> = ({checkedTeam}) => {
         <div className={styles.info}>
             <div className={styles.desc}>
                 <div className={styles.top}>
-                    <h1 className={styles.title}>{checkedTeam}</h1>
+                    <h1 className={styles.title}>{team?.name}</h1>
                 </div>
+                {team &&
                 <div className={styles.summary}>
-                    <SummaryContainer result={16} type='Количество сотрудников' factor={false}/>
-                    <SummaryContainer result={4.31} type='Средняя оценка команды' factor={true}/>
-                    <SummaryContainer result={4.29} type='Soft Skills' factor={true}/>
-                    <SummaryContainer result={4.29} type='Hard Skills' factor={true}/>
-                    <SummaryContainer result={7} type='Bus factor' factor={true}/>
-                    <SummaryContainer result={2.03} type='Коэффициент стресса средний' factor={true}/>
-                </div>
+                    <SummaryContainer result={team.employee_count} type='Количество сотрудников' factor={false}/>
+                    <SummaryContainer result={averageAssessment ? averageAssessment : ''} type='Средняя оценка команды' factor={true}/>
+                    <SummaryContainer result={team.average_soft_skills} type='Soft Skills' factor={true}/>
+                    <SummaryContainer result={team.average_hard_skills} type='Hard Skills' factor={true}/>
+                    <SummaryContainer result={team.bus_factor ? 1 : 0} type='Bus factor' factor={true}/>
+                    <SummaryContainer result={team.stress_level} type='Коэффициент стресса средний' factor={true}/>
+                </div>}
+                
             </div>
             <div className={styles.charts}>
                 <Tabs

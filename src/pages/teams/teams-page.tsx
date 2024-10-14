@@ -1,47 +1,52 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
-import { ConfigProvider } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { TeamsContext } from '../../utils/context';
+import {getTeams} from '../../utils/api'
 
 
 const TeamsPage = () => {
     const navigate = useNavigate();
+    const [teams, setTeams] = useContext(TeamsContext);
+    
+    const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('teams');
+    const [ selectedInfo, setSelectedInfo ] = useState('');
 
-    const [ checkedTab, setCheckedTab ]= useState<'teams' | 'employees'>('teams');
-    const [ checkedInfo, setCheckedInfo ] = useState('');
+    useEffect(() => {
+        getTeams()
+        .then(res => setTeams(res.results));
+    },[])
 
-    const setChecked = (tab: 'teams' | 'employees') => {
-        setCheckedTab(tab);
-        setCheckedInfo('');
+    const setSelected = (tab: 'teams' | 'employees') => {
+        setSelectedTab(tab);
+        setSelectedInfo('');
         navigate(`/${tab}`);
     }
 
-    const checkInfo = (e: ChangeEvent<HTMLButtonElement>) => {
-        if (checkedInfo !== e.target.textContent) {
-            setCheckedInfo(e.target.textContent as string);
+    const selectInfo = (e: ChangeEvent<HTMLButtonElement>) => {
+        if (selectedInfo !== e.target.textContent) {
+            setSelectedInfo(e.target.textContent as string);
             console.log(e.target.textContent);
         }
     }
 
     return (
-        <ConfigProvider>
-            <Layout>
-                <Header isAuth={true} isNotifications={true} />
-                <div className={styles.content}>
+        <Layout>
+            <Header isAuth={true} isNotifications={true} />
+            <div className={styles.content}>
                 <TabMenu
-                    onTeamsClickHandler={() => setChecked('teams')}
-                    onEmployeesClickHandler={() => setChecked('employees')}
-                    onItemClickHandler={(e: any) => checkInfo(e)}
-                    checkedTab={checkedTab}
+                    onTeamsClickHandler={() => setSelected('teams')}
+                    onEmployeesClickHandler={() => setSelected('employees')}
+                    onItemClickHandler={(e: any) => selectInfo(e)}
+                    selectedTab={selectedTab}
                 />
-                    <TeamsInfo checkedInfo={checkedInfo}/>                    
-                </div>
-            </Layout>
-        </ConfigProvider>
+                <TeamsInfo selectedInfo={selectedInfo}/>                    
+            </div>
+        </Layout>
     );
 }
 

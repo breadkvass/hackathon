@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/header';
 import EyeIcon from '../../assets/images/icons/eye-slash.svg';
 import styles from './login-page.module.css';
+import { loginUser } from '../../utils/api';
 
 function LoginPage() {
     const navigate = useNavigate();
@@ -44,20 +45,9 @@ function LoginPage() {
     const onSubmitHandler = (e: FormEvent) => {
         e.stopPropagation();
         e.preventDefault();
-        // fetch('', {
-        //     method: 'POST',
-        //     body: 
-        // })
-        // .then(() => {
-            console.log('submit');
-            navigate('/teams');
-        // })
-        // .catch(() => {
-            // TODO: отловить ошибку, сменить стили инпутов
-        // })
-        // .finally(() => {
-            
-        // });
+        loginUser(emailValue, passwordValue);
+        console.log('submit');
+        navigate('/teams');
     }
 
     useEffect(() => {

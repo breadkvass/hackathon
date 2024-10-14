@@ -48,63 +48,6 @@ export const dataStress = [
     { квартал: '4 кв', оценка: 2 }
 ]
 
-export const dataSkillsAssessment = [
-  {
-    "skills": "Hard Skills",
-    "assessment": 4,
-    "person": "Акимов Роберт"
-  },
-  {
-    "skills": "Soft Skills",
-    "assessment": 4,
-    "person": "Акимов Роберт"
-  },
-
-  {
-    "skills": "Hard Skills",
-    "assessment": 2,
-    "person": "Волков Денис"
-  },
-  {
-    "skills": "Soft Skills",
-    "assessment": 3,
-    "person": "Волков Денис"
-  },
-  
-  {
-    "skills": "Hard Skills",
-    "assessment": 4,
-    "person": "Журавлев Максим"
-  },
-  {
-    "skills": "Soft Skills",
-    "assessment": 2,
-    "person": "Журавлев Максим"
-  },
-
-  {
-    "skills": "Hard Skills",
-    "assessment": 4,
-    "person": "Комарова Вера"
-  },
-  {
-    "skills": "Soft Skills",
-    "assessment": 3,
-    "person": "Комарова Вера"
-  },
-
-  {
-    "skills": "Hard Skills",
-    "assessment": 4,
-    "person": "Костин Михаил"
-  },
-  {
-    "skills": "Soft Skills",
-    "assessment": 4,
-    "person": "Костин Михаил"
-  },
-];
-
 
 export const dataHard = [
   {

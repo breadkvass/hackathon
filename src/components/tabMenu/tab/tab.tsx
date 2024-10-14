@@ -9,15 +9,15 @@ type TabProps = {
     tab: 'teams' | 'employees';
     items: string[];
     onTabClickHandler: MouseEventHandler;
-    checkedTab: 'teams' | 'employees';
+    selectedTab: 'teams' | 'employees';
     onItemClickHandler: MouseEventHandler;
 }
 
-const Tab: FC<TabProps> = ({tab, items, onTabClickHandler, checkedTab, onItemClickHandler}) => {
+const Tab: FC<TabProps> = ({tab, items, onTabClickHandler, selectedTab, onItemClickHandler}) => {
     const icon = tab === 'teams' ? <TeamsIcon /> : <UserIcon />;
     const name = tab === 'teams' ? 'Команды' : 'Сотрудники';
-    const arrow = tab === checkedTab ? <RollUp /> : <UnWrap />;
-    const style = tab === checkedTab ? styles.button + ' ' + styles.checked : styles.button;
+    const arrow = tab === selectedTab ? <RollUp /> : <UnWrap />;
+    const style = tab === selectedTab ? styles.button + ' ' + styles.selected : styles.button;
 
     return (
 
@@ -27,7 +27,7 @@ const Tab: FC<TabProps> = ({tab, items, onTabClickHandler, checkedTab, onItemCli
                 <p className={styles.name}>{name}</p>
                 {arrow}
             </button>
-            {checkedTab === tab &&
+            {selectedTab === tab &&
                 <ul className={styles.items}>
                     {items.map((item, i) =>
                         <li className={styles.item} key={i}>

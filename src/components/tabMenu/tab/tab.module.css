@@ -34,14 +34,14 @@
     margin-left: 32px;
 }
 
-.checked svg:last-child path {
+.selected svg:last-child path {
     stroke: var(--main-color);
 }
 
-.checked svg:first-child path {
+.selected svg:first-child path {
     fill: var(--main-color);
 }
 
-.checked .name {
+.selected .name {
     color: var(--main-color);
 }

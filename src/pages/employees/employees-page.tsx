@@ -9,18 +9,18 @@ import styles from './employees-page.module.css';
 function EmployeesPage() {
     const navigate = useNavigate();
 
-    const [ checkedTab, setCheckedTab ]= useState<'teams' | 'employees'>('employees');
-    const [ checkedInfo, setCheckedInfo ] = useState('');
+    const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('employees');
+    const [ selectedInfo, setSelectedInfo ] = useState('');
 
-    const setChecked = (tab: 'teams' | 'employees') => {
-        setCheckedTab(tab);
-        setCheckedInfo('');
+    const setSelected = (tab: 'teams' | 'employees') => {
+        setSelectedTab(tab);
+        setSelectedInfo('');
         navigate(`/${tab}`);
     }
 
     const checkInfo = (e: ChangeEvent<HTMLButtonElement>) => {
-        if (checkedInfo !== e.target.textContent) {
-            setCheckedInfo(e.target.textContent as string);
+        if (selectedInfo !== e.target.textContent) {
+            setSelectedInfo(e.target.textContent as string);
             console.log(e.target.textContent);
         }
     }
@@ -29,12 +29,12 @@ function EmployeesPage() {
             <Header isAuth={true} isNotifications={true} />
             <div className={styles.content}>
                 <TabMenu
-                    onTeamsClickHandler={() => setChecked('teams')}
-                    onEmployeesClickHandler={() => setChecked('employees')}
+                    onTeamsClickHandler={() => setSelected('teams')}
+                    onEmployeesClickHandler={() => setSelected('employees')}
                     onItemClickHandler={(e: any) => checkInfo(e)}
-                    checkedTab={checkedTab}
+                    selectedTab={selectedTab}
                 />
-               <EmployessInfo checkedInfo={checkedInfo}/>
+               <EmployessInfo selectedInfo={selectedInfo}/>
             </div>
         </Layout>
     );

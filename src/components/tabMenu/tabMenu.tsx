@@ -1,4 +1,5 @@
-import { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler, useContext } from 'react';
+import { TeamsContext } from '../../utils/context';
 import Tab from './tab/tab';
 import styles from './tabMenu.module.css';
 
@@ -6,26 +7,28 @@ type TabMenuProps = {
     onTeamsClickHandler: MouseEventHandler;
     onEmployeesClickHandler: MouseEventHandler;
     onItemClickHandler: MouseEventHandler;
-    checkedTab: "teams" | "employees";
+    selectedTab: "teams" | "employees";
 }
 
-const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler,onEmployeesClickHandler, onItemClickHandler, checkedTab}) => {
-    const teams = [ 'Медиа', 'Core', 'Приложение', 'ФЛ', 'Эквайринг', 'ЮЛ'];
+const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler,onEmployeesClickHandler, onItemClickHandler, selectedTab}) => {
+    const [ teams ] = useContext(TeamsContext);
+    const teamsNames = teams.map(team => team.name);
+
     const employees = [ 'Акимов Роберт' ];
     
     return (
         <nav className={styles.sidebar}>
             <ul className={styles.list}>
                 <Tab tab={'teams'}
-                    items={teams}
+                    items={teamsNames}
                     onTabClickHandler={onTeamsClickHandler}
-                    checkedTab={checkedTab}
+                    selectedTab={selectedTab}
                     onItemClickHandler={onItemClickHandler}
                 />
                 <Tab tab={'employees'}
                     items={employees}
                     onTabClickHandler={onEmployeesClickHandler}
-                    checkedTab={checkedTab}
+                    selectedTab={selectedTab}
                     onItemClickHandler={onItemClickHandler}
                 />
             </ul>
