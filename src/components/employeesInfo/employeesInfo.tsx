@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Input } from "antd";
 import { Tabs } from 'antd';
-import {Select} from 'antd';
+import { Select } from 'antd';
 import SearcIcon from '../icons/loupe/loupe';
 import UnWrap from '../icons/unWrap/unWrap';
 import TableComponent from '../table/table';
@@ -10,6 +10,7 @@ import EmployeeAssessment from '../employeeAssessment/employeeAssessment';
 import styles from './employeesInfo.module.css';
 import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
 import { dataColumns, dataSource } from '../../data/dataEmployees';
+import IPR from '../IPR/IPR';
 
 type CheckedEmplyeeInfoProps = {
     checkedEmployee: string;
@@ -88,7 +89,7 @@ const CheckedEmployeeInfo: FC<CheckedEmplyeeInfoProps> = ({checkedEmployee}) => 
         {
             key: "3",
             label: "ИПР",
-            children: <>ИПР</>,
+            children: <IPR />,
           },
       ];
     
