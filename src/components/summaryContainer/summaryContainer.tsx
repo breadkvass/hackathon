@@ -2,24 +2,24 @@ import { FC } from 'react';
 // import Info from '../../assets/images/icons/info.svg';
 import Info from '../icons/info/info';
 import Badge from '../icons/badge/badge';
-import styles from './teamsSummaryContainer.module.css';
+import styles from './summaryContainer.module.css';
 
-type TeamsSummaryContainerProps = {
-    number: number;
+type SummaryContainerProps = {
+    result: number | string;
     type: string;
     factor: boolean;
 }
 
-const TeamsSummaryContainer: FC<TeamsSummaryContainerProps> = ({number, type, factor}) => {
+const SummaryContainer: FC<SummaryContainerProps> = ({result, type, factor}) => {
     return (
         <div className={styles.container}>
             { !factor
             ? 
-            <p className={styles.number}>{number}</p>
+            <p className={styles.number}>{result}</p>
             :
             <div className={styles.summary}>
                 <Badge style={styles.margin}/>
-                <p className={styles.number}>{number}</p>
+                <p className={styles.number}>{result}</p>
                 <Info />
             </div>
             }
@@ -28,4 +28,4 @@ const TeamsSummaryContainer: FC<TeamsSummaryContainerProps> = ({number, type, fa
     )
 }
 
-export default TeamsSummaryContainer;
+export default SummaryContainer;
