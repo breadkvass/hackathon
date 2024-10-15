@@ -111,14 +111,14 @@ const SelectedEmployeeInfo: FC<SelectedEmplyeeInfoProps> = ({selectedEmployee}) 
                     <SummaryContainer result={1.0} type='Коэф. соответствия' factor={true}/>
                 </div>
             </div>
-        <div className={styles.charts}>
-            <Tabs
-                defaultActiveKey="1"
-                style={{ width: "100%" }}
-                items={tabList}
-            />
+            <div className={styles.charts}>
+                <Tabs
+                    defaultActiveKey="1"
+                    style={{ width: "100%" }}
+                    items={tabList}
+                />
+            </div>
         </div>
-    </div>
     )
 }
 
