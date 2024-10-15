@@ -1,17 +1,17 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { TeamsContext } from '../../utils/teamsContext';
+import { getTeams } from '../../utils/api';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
-import { useNavigate } from 'react-router-dom';
-import { TeamsContext } from '../../utils/teamsContext';
-import {getTeams} from '../../utils/api'
 
 
 const TeamsPage = () => {
     const navigate = useNavigate();
-    const [teams, setTeams] = useContext(TeamsContext);
+    const [ teams, setTeams ] = useContext(TeamsContext);
     
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('teams');
     const [ selectedInfo, setSelectedInfo ] = useState('');

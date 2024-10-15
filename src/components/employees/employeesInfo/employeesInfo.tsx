@@ -2,16 +2,16 @@ import { FC, useContext } from 'react';
 import { Input } from "antd";
 import { Tabs } from 'antd';
 import { Select } from 'antd';
+import { dataSource, dataColumns } from '../../../data/dataEmployees';
+import { EmployeesContext } from '../../../utils/employeesContext';
 import SearchIcon from '../../icons/loupe/loupe';
 import UnWrap from '../../icons/unWrap/unWrap';
 import TableComponent from '../../table/table';
 import SummaryContainer from '../../summaryContainer/summaryContainer';
 import EmployeeAssessment from '../employeeAssessment/employeeAssessment';
-import styles from './employeesInfo.module.css';
 import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
-import { dataSource, dataColumns } from '../../../data/dataEmployees';
 import IPR from '../../IPR/IPR';
-import { EmployeesContext } from '../../../utils/employeesContext';
+import styles from './employeesInfo.module.css';
 
 type SelectedEmplyeeInfoProps = {
     selectedEmployee: string;
@@ -30,9 +30,7 @@ const EmployessInfo: FC<EmployessInfoProps> = ({selectedInfo}) => {
 }
 
 const AllEmployeesInfo = () => {
-    const [employees] = useContext(EmployeesContext);
-
-    console.log(employees);
+    const [ employees ] = useContext(EmployeesContext);
 
     const handleChange = (value: string) => {
         console.log(`selected ${value}`);
