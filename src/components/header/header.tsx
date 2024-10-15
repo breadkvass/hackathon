@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import Search from '../../assets/images/icons/search.svg';
 import Bell from '../../assets/images/icons/bell-simple.svg';
@@ -12,6 +13,12 @@ type HeaderProps = {
 }
 
 const Header: FC<HeaderProps> = (isAuth, isNotifications) => {
+    const navigate = useNavigate();
+
+    const clickHandler = () => {
+        navigate('/profile')
+    }
+
     return (
         <header className={styles.header}>
             <div className={styles.content}>
@@ -25,7 +32,7 @@ const Header: FC<HeaderProps> = (isAuth, isNotifications) => {
                             <img className={styles.headerIcon} src={Bell} />
                             {isNotifications && <img className={styles.badge} src={Badge}/>}
                         </div>
-                        <div className={styles.profile}>
+                        <div className={styles.profile} onClick={clickHandler}>
                             <img className={styles.avatar} src={Avatar} />
                             <p className={styles.name}>Екатерина Смирнова</p>
                         </div>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Switch } from 'antd';
 import { RouterProvider } from "react-router-dom";
 import { TeamsContextProvider } from "./utils/teamsContext"
 import router from "./App";
@@ -9,7 +9,8 @@ import { EmployeesContextProvider } from "./utils/employeesContext";
 
 const themeConfig = {
   token: {
-      colorPrimary: "#42434B",
+      colorPrimaryHover: "#86878",
+      colorText: "#42434B",
       fontFamily: "Manrope",
       fontSize: 16,
       lineHeight: 1.5,
@@ -21,6 +22,9 @@ const themeConfig = {
           itemSelectedColor: "#42434B",
           itemColor: "#86878C",
           cardHeight: "42px"
+      },
+      Switch: {
+        colorPrimary: "#E10D34"
       }
   }
 }

@@ -6,7 +6,7 @@ import {
 import TeamsPage from "./pages/teams/teams-page";
 import LoginPage from "./pages/login/login-page";
 import EmployeesPage from "./pages/employees/employees-page";
-import ProfilePage from "./pages/profile/profile";
+import ProfilePage from "./pages/profile/profile-page";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

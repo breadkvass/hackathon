@@ -35,6 +35,7 @@
 .headerIcon {
     width: 24px;
     aspect-ratio: 1 / 1;
+    cursor: pointer;
 }
 
 .profile {
@@ -46,6 +47,7 @@
     background-color: var(--color-white);
     height: 100%;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .avatar {
