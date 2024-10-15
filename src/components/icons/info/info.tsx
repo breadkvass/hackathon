@@ -1,10 +1,4 @@
-// import { FC } from "react";
 import styles from './info.module.css';
-// type InfoProps = {
-//     style: string;
-// }
-
-// const Info: FC<InfoProps> = ({style}) => {
     const Info = () => {
     return (
         <svg className={styles.margin} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
