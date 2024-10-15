@@ -2,11 +2,13 @@ import { FC, useState, useMemo} from 'react';
 import { Select } from 'antd';
 import { dataColumns } from '../../../data/teamEmployees';
 import { Team } from '../../../utils/types';
+import Modal from '../../modal/modal';
 import TableComponent from '../../table/table';
 import UnWrap from '../../icons/unWrap/unWrap';
 import Plus from '../../icons/plus/plus';
 import ThreeDotsCircle from '../../icons/threeDotsCircle/threeDotsCircle';
 import styles from './teamEmployees.module.css';
+import AddEmployeeToTeamComponent from '../addEmployeeToTeamComponent/addEmployeeToTeamComponent';
 
 type TeamAnalyticsProps = {
     team: Team;
@@ -14,6 +16,7 @@ type TeamAnalyticsProps = {
 
 const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
     const [ jobFilter, setJobFilter ] = useState('');
+    const [ isModalAddEmployee, setIsModalAddEmployee ] = useState(false);
 
     const employeesData = team.employees.map((employee, i) => {
         let employeeInfo = {
@@ -44,6 +47,16 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
         setJobFilter(value);
     };
 
+    const handleClick = () => {
+        setIsModalAddEmployee(true);
+        console.log('клик')
+    }
+
+    const closeModal = () => {
+        setIsModalAddEmployee(false);
+
+    }
+
     const filtredData = useMemo(() => {
         let arrayToShow = employeesData;
 
@@ -66,7 +79,7 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
                     placeholder='Должность'
                     options={jobsOptions}
                 />
-                <button className={styles.add}>
+                <button className={styles.add} onClick={handleClick}>
                     <Plus />
                     Добавить сотрудника
                 </button>
@@ -74,6 +87,10 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
             <div className={styles.table}>
                 <TableComponent data={filtredData} columns={dataColumns}/>
             </div>
+            {isModalAddEmployee &&
+                <Modal closeHandler={() => closeModal()} title={'Добавить нового сотрудника в команду'}>
+                    <AddEmployeeToTeamComponent team={team}/>
+                </Modal>}
         </div>
     )
 }

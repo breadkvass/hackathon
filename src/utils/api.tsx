@@ -63,3 +63,18 @@ export const getEmployee = (id: string) => {
   .then(checkResponse);
 }
 
+export const getTrainingSchedule = () => {
+  return fetch(`${URL}/v1/development-plans/`, {
+    headers: headersWithAuthorizeFn(),
+    method: "GET", 
+  })
+  .then(checkResponse);
+}
+
+export const addEmployeeToTeam = (id: number) => {
+  return fetch(`${URL}/v1/teams/{id}/`, {
+    method: "POST",
+    headers: headersWithAuthorizeFn(),
+    body: JSON.stringify(id),
+  }).then(checkResponse);
+}

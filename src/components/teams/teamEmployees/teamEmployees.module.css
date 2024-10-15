@@ -16,6 +16,10 @@
     padding: 12px 16px;
     color: var(--color-white);
     border-radius: 12px;
+    gap: 10px;
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 500;
 }
 
 .add svg path {

@@ -1,24 +1,28 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TeamsContext } from '../../utils/teamsContext';
-import { getTeams } from '../../utils/api';
+import { getEmployees, getTeams } from '../../utils/api';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
+import { EmployeesContext } from '../../utils/employeesContext';
 
 
 const TeamsPage = () => {
     const navigate = useNavigate();
     const [ teams, setTeams ] = useContext(TeamsContext);
+    const [ employees, setEmployees ] = useContext(EmployeesContext);
     
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('teams');
     const [ selectedInfo, setSelectedInfo ] = useState('');
 
     useEffect(() => {
         getTeams()
-        .then(res => setTeams(res.results));
+            .then(res => setTeams(res.results));
+        getEmployees()
+            .then(res => setEmployees(res.results))
     },[])
 
     const setSelected = (tab: 'teams' | 'employees') => {

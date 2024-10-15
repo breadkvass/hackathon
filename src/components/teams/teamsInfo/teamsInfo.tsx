@@ -7,6 +7,7 @@ import TeamAnalytics from '../teamAnalytics/teamAnalytics';
 import TeamEmployees from '../teamEmployees/teamEmployees';
 import { TeamsContext } from '../../../utils/teamsContext';
 import styles from './teamsInfo.module.css';
+import TeamEmployeesShedule from '../teamEmployeesShedule/teamEmployeesShedule';
 
 type SelectedTeamInfoProps = {
     selectedTeam: string;
@@ -75,7 +76,7 @@ const SelectedTeamInfo: FC<SelectedTeamInfoProps> = ({selectedTeam}) => {
         {
           key: "2",
           label: "График обучения сотрудников",
-          children: <>График обучения сотрудников</>,
+          children: <TeamEmployeesShedule team={team} />,
         },
         {
             key: "3",
