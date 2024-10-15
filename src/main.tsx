@@ -2,9 +2,10 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { ConfigProvider } from 'antd';
 import { RouterProvider } from "react-router-dom";
-import { TeamsContextProvider } from "./utils/context"
+import { TeamsContextProvider } from "./utils/teamsContext"
 import router from "./App";
 import "./index.css";
+import { EmployeesContextProvider } from "./utils/employeesContext";
 
 const themeConfig = {
   token: {
@@ -27,9 +28,11 @@ const themeConfig = {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <TeamsContextProvider>
-      <ConfigProvider theme={themeConfig}>
-        <RouterProvider router={router} />
-      </ConfigProvider>
+      <EmployeesContextProvider>
+        <ConfigProvider theme={themeConfig}>
+          <RouterProvider router={router} />
+        </ConfigProvider>
+      </EmployeesContextProvider>
     </TeamsContextProvider>
   </React.StrictMode>
 );

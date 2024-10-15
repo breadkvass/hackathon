@@ -5,7 +5,7 @@ import TabMenu from '../../components/tabMenu/tabMenu';
 import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
 import { useNavigate } from 'react-router-dom';
-import { TeamsContext } from '../../utils/context';
+import { TeamsContext } from '../../utils/teamsContext';
 import {getTeams} from '../../utils/api'
 
 

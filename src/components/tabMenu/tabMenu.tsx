@@ -1,5 +1,5 @@
 import { FC, MouseEventHandler, useContext } from 'react';
-import { TeamsContext } from '../../utils/context';
+import { TeamsContext } from '../../utils/teamsContext';
 import Tab from './tab/tab';
 import styles from './tabMenu.module.css';
 

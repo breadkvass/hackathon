@@ -5,7 +5,7 @@ import SummaryContainer from '../../summaryContainer/summaryContainer';
 import TeamCard from '../teamCard/teamCard';
 import TeamAnalytics from '../teamAnalytics/teamAnalytics';
 import TeamEmployees from '../teamEmployees/teamEmployees';
-import { TeamsContext } from '../../../utils/context';
+import { TeamsContext } from '../../../utils/teamsContext';
 import styles from './teamsInfo.module.css';
 
 type SelectedTeamInfoProps = {

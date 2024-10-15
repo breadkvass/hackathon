@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Input } from "antd";
 import { Tabs } from 'antd';
 import { Select } from 'antd';
@@ -11,6 +11,7 @@ import styles from './employeesInfo.module.css';
 import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
 import { dataSource, dataColumns } from '../../../data/dataEmployees';
 import IPR from '../../IPR/IPR';
+import { EmployeesContext } from '../../../utils/employeesContext';
 
 type SelectedEmplyeeInfoProps = {
     selectedEmployee: string;
@@ -29,6 +30,10 @@ const EmployessInfo: FC<EmployessInfoProps> = ({selectedInfo}) => {
 }
 
 const AllEmployeesInfo = () => {
+    const [employees] = useContext(EmployeesContext);
+
+    console.log(employees);
+
     const handleChange = (value: string) => {
         console.log(`selected ${value}`);
     };

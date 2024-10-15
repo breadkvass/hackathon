@@ -50,7 +50,8 @@ export const getTeam = (id: string) => {
 
 export const getEmployees = () => {
   return fetch(`${URL}/v1/employees/`, {
-    method: "GET",
+    headers: headersWithAuthorizeFn(),
+    method: "GET", 
   })
   .then(checkResponse);
 }
