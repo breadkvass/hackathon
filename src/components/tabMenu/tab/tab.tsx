@@ -9,7 +9,7 @@ type TabProps = {
     tab: 'teams' | 'employees';
     items: string[];
     onTabClickHandler: MouseEventHandler;
-    selectedTab: 'teams' | 'employees';
+    selectedTab: 'teams' | 'employees' | '';
     onItemClickHandler: MouseEventHandler;
 }
 

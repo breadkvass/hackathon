@@ -7,7 +7,7 @@ type TabMenuProps = {
     onTeamsClickHandler: MouseEventHandler;
     onEmployeesClickHandler: MouseEventHandler;
     onItemClickHandler: MouseEventHandler;
-    selectedTab: "teams" | "employees";
+    selectedTab: 'teams' | 'employees' | '';
 }
 
 const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler,onEmployeesClickHandler, onItemClickHandler, selectedTab}) => {
