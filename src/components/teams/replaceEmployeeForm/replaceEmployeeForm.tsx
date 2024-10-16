@@ -17,7 +17,6 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
     const [ , closeModal ] = useContext(ModalContext);
     const [ jobFilter, setJobFilter ] = useState('');
     const [ teamFilter, setTeamFilter ] = useState('');
-    const [ gradeFilter, setGradeFilter ] = useState('');
     const [ employees ] = useContext(EmployeesContext);
     const [ employeeToReplace, setEmployeeToReplace ] = useState<DefaultOptionType>();
 

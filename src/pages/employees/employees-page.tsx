@@ -10,7 +10,7 @@ import { getEmployees } from "../../utils/api";
 
 function EmployeesPage() {
     const navigate = useNavigate();
-    const [employees, setEmployees] = useContext(EmployeesContext);
+    const [ employees, setEmployees ] = useContext(EmployeesContext);
 
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('employees');
     const [ selectedInfo, setSelectedInfo ] = useState('');
