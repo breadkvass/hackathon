@@ -30,3 +30,23 @@
     width: 262px;
     height: 48px;
 }
+
+.table {
+    width: 100%;
+    height: max-content;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action {
+    font-family: 'Manrope';
+    font-size: var(--text-b3-size);
+    line-height: var(--text-b3-height);
+    color: var(--additional-not-selected);
+}
+
