@@ -1,8 +1,8 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useState, useMemo } from 'react';
 import { Input } from "antd";
 import { Tabs } from 'antd';
 import { Select } from 'antd';
-import { dataSource, dataColumns } from '../../../data/dataEmployees';
+import { dataColumns } from '../../../data/dataEmployees';
 import { EmployeesContext } from '../../../utils/employeesContext';
 import SearchIcon from '../../icons/loupe/loupe';
 import UnWrap from '../../icons/unWrap/unWrap';
@@ -21,6 +21,18 @@ type EmployessInfoProps = {
     selectedInfo: string;
 }
 
+type EmployeeRecord = {
+    key: number;
+    number: number;
+    name: string;
+    position: string;
+    grade: string;
+    hard: number;
+    soft: number;
+    compliance: 1.0;
+    team: string
+}
+
 const EmployessInfo: FC<EmployessInfoProps> = ({selectedInfo}) => {
     return (
         <>
@@ -31,10 +43,53 @@ const EmployessInfo: FC<EmployessInfoProps> = ({selectedInfo}) => {
 
 const AllEmployeesInfo = () => {
     const [ employees ] = useContext(EmployeesContext);
+    const [ jobFilter, setJobFilter ] = useState<string | null>('');
+    const [ teamFilter, setTeamFilter ] = useState('');
+    const [ searchValue, setSearchValue ] = useState('');
+    console.log(searchValue);
 
-    const handleChange = (value: string) => {
-        console.log(`selected ${value}`);
-    };
+    const employeesData: EmployeeRecord[] = employees.map((employee, i) => ({
+        key: employee.id,
+        number: i+1,
+        name: employee.last_name + ' ' + employee.first_name,
+        position: employee.job_title,
+        hard: employee.competence.hard_skills,
+        soft: employee.competence.soft_skills,
+        grade: employee.grade,
+        compliance: 1.0,
+        team: employee.teams.join(', ')
+    }));
+
+    const teams = Array.from(new Set(employees.map(employee => employee.teams[0]))).filter(team => team !== undefined);
+    const teamsOptions = teams.map(team => {
+        let teamsOption = {
+            value: team,
+            label: team
+        }
+        return teamsOption;
+    })
+
+    const jobs = Array.from(new Set(employees.map(employee => employee.job_title)));
+    const jobsOptions = jobs.map(job => ({value: job, label: job}));
+
+    const filtredData = useMemo(() => {
+        let arrayToShow = employeesData;
+
+        if (jobFilter) {
+            arrayToShow = employeesData.filter(employee => employee.position === jobFilter)
+        } 
+
+        if (teamFilter) {
+            arrayToShow = employeesData.filter(employee => employee.team.includes(teamFilter))
+        } 
+
+        if (searchValue) {
+            arrayToShow = employeesData.filter(employee => employee.name.includes(searchValue))
+        } 
+
+        return arrayToShow;
+
+    }, [employees, jobFilter, teamFilter, searchValue]);
     
     return (
 
@@ -45,33 +100,29 @@ const AllEmployeesInfo = () => {
                     <p className={styles.sum}>100</p>
                 </div>
                 <div className={styles.filter}>
-                    <Input className={styles.search} placeholder="Поиск" prefix={<SearchIcon />} />
+                    <Input
+                        className={styles.search}
+                        placeholder="Поиск"
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        prefix={<SearchIcon />} />
                     <Select
                         suffixIcon={<UnWrap />}
                         className={styles.dropdown}
-                        onChange={handleChange}
+                        onChange={(value) => setTeamFilter(value)}
                         placeholder='Команда'
-                        options={[
-                            { value: '1', label: 'Медиа' },
-                            { value: '2', label: 'ФЛ' },
-                            { value: '3', label: 'ЮЛ' },
-                        ]}
+                        options={teamsOptions}
                     />
                     <Select
                         suffixIcon={<UnWrap />}
                         className={styles.dropdown}
-                        onChange={handleChange}
+                        onChange={(value) => setJobFilter(value)}
                         placeholder='Должность'
-                        options={[
-                            { value: '1', label: 'Дизайнер' },
-                            { value: '2', label: 'Бизнес-аналитик' },
-                            { value: '3', label: 'Разработчик' },
-                        ]}
+                        options={jobsOptions}
                     />
                 </div>
             </div>
             <div className={styles.table}>
-                <TableComponent data={dataSource} columns={dataColumns}/>
+                <TableComponent data={filtredData} columns={dataColumns}/>
             </div>
         </div>
     )
