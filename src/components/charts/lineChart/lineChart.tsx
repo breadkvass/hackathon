@@ -9,38 +9,36 @@ type LineChartProps = {
     type: string;
     width?: number;
 }
-// const LineChart: FC<LineChartProps> = ({ value, colors, maxY, type, width }) => {
-    const LineChart: FC<LineChartProps> = ({value, maxY, type, width }) => {
 
-    const data = value;
-    
-      const config: LineConfig = {
-        data,
-        xField: 'квартал',
-        yField: 'оценка',
-        point: {
-          shapeField: 'circle',
-          sizeField: 4,
-        },
-        width: width,
-        interaction: {
-          tooltip: {
-            marker: false,
-          },
-        },
-        scale: {
-            y: { 
-              type: 'linear',
-              domain: [0, maxY],
-            }
+const LineChart: FC<LineChartProps> = ({value, maxY, type, width }) => {
+  const data = value;
+  const config: LineConfig = {
+    data,
+    xField: 'квартал',
+    yField: 'оценка',
+    point: {
+      shapeField: 'circle',
+      sizeField: 4,
+    },
+    width: width,
+    interaction: {
+      tooltip: {
+        marker: false,
+      },
+    },
+    scale: {
+        y: { 
+          type: 'linear',
+          domain: [0, maxY],
         }
-      };
+    }
+  };
 
-      return (
-        <ChartLayout type={type}>
-            <Line {...config}  />
-        </ChartLayout>
-    )
+  return (
+    <ChartLayout type={type}>
+        <Line {...config}  />
+    </ChartLayout>
+  )
 
       
 };

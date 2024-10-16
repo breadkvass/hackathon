@@ -1,6 +1,6 @@
 import { Team } from "./types";
 
-const URL = 'http://localhost:8000/api';
+const URL = 'https://dashboard-hakaton.hopto.org/api';
 
 const checkResponse = (res: Response) => {
     if (res.ok) {
@@ -58,8 +58,9 @@ export const getEmployees = () => {
   .then(checkResponse);
 }
 
-export const getEmployee = (id: string) => {
+export const getEmployee = (id: number) => {
   return fetch(`${URL}/v1/employees/${id}`, {
+    headers: headersWithAuthorizeFn(),
     method: "GET",
   })
   .then(checkResponse);

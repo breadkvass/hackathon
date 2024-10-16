@@ -1,9 +1,16 @@
+import { FC } from 'react';
 import { dataCompliance, dataHard, dataSoft, dataEmployeeAssessment } from '../../../data/data';
+import { Employee } from '../../../utils/types';
 import BarChart from '../../charts/barChart/barChart';
 import ColumnChart from '../../charts/columnChart/columnChart';
 import styles from './employeeAnalytics.module.css';
+ 
+type EmployeeAnalyticsProps = {
+    employee?: Employee;
+}
 
-const EmployeeAnalytics = () => {
+const EmployeeAnalytics: FC<EmployeeAnalyticsProps> = ({employee}) => {
+    console.log('Сотрудник:', employee);
     return (
         <div className={styles.analytics}>
             <h3 className={styles.title}>2024 год</h3>

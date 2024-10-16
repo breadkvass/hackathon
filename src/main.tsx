@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import { ConfigProvider, Switch } from 'antd';
+import { ConfigProvider } from 'antd';
 import { RouterProvider } from "react-router-dom";
 import { TeamsContextProvider } from "./utils/teamsContext"
 import router from "./App";

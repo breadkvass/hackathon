@@ -18,6 +18,9 @@ const TeamsPage = () => {
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('teams');
     const [ selectedInfo, setSelectedInfo ] = useState('');
 
+    console.log('Все команды:', teams);
+    console.log('Все сотрудники:', employees);
+
     useEffect(() => {
         getTeams()
             .then(res => setTeams(res.results));

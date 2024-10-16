@@ -4,7 +4,6 @@ import styles from "./modal.module.css";
 import Cross from "../icons/cross/cross";
 
 type ModalProps = {
-    // padding?: string;
     title?: string;
     children: ReactNode;
     closeHandler: Function;

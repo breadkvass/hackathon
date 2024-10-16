@@ -5,9 +5,9 @@ import BarChart from '../../charts/barChart/barChart';
 import ChartLayout from '../../charts/chartLayout/chartLayout';
 import ColumnChart from '../../charts/columnChart/columnChart';
 import LineChart from '../../charts/lineChart/lineChart';
-import TableComponent from '../../table/table';
 import styles from './teamAnalytics.module.css';
 import { Team } from '../../../utils/types';
+import { Table } from 'antd';
 
 type TeamAnalyticsProps = {
     team: Team;
@@ -17,7 +17,7 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
 
     const hardSkillsData = team.employees
         .map(employee => {
-            let hardSkills = {
+            const hardSkills = {
                 'skills': 'Hard Skills',
                 'assessment': employee.competence.hard_skills,
                 'person': employee.last_name + ' ' + employee.first_name
@@ -28,7 +28,7 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
 
     const softSkillsData = team.employees
         .map(employee => {
-            let softSkills = {
+            const softSkills = {
                 'skills': 'Soft Skills',
                 'assessment': employee.competence.soft_skills,
                 'person': employee.last_name + ' ' + employee.first_name
@@ -43,7 +43,7 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
         <div className={styles.analytics}>
             <h3 className={styles.title}>2024 год</h3>
             <div className={styles.graphics}>
-                    <ColumnChart
+                    {/* <ColumnChart
                         type='Динамика средней оценки по доменам'
                         value={dataDynamics}
                         colors={[
@@ -57,7 +57,7 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
                         value={dataStress}
                         maxY={5}
                         width={312}
-                    />
+                    /> */}
                     <BarChart
                         type='Средняя оценка скиллов по сотруднику'
                         value={dataSkillsAssessment}
@@ -67,7 +67,7 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
                             'linear-gradient(180deg, rgba(70, 135, 255, 0.25) 0%, rgba(70, 135, 255, 0.3) 25%, rgba(70, 135, 255, 0.35) 50%, rgba(70, 135, 255, 0.45) 75%)']}
                     />
                     <ChartLayout type='Bus фактор'>
-                        <TableComponent data={dataBus} columns={dataBusColumns} />
+                        <Table dataSource={dataBus} columns={dataBusColumns} pagination={false}/>
                     </ChartLayout>
                     
             </div>

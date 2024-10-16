@@ -3,7 +3,11 @@ import { FC } from 'react';
 import ChartLayout from '../chartLayout/chartLayout';
 
 type ColumnChartProps = {
-    value: any[];
+    value: {
+        skills: string;
+        kvartal: string;
+        assessment: number;
+    }[];
     colors: string[];
     maxY: number;
     type: string;

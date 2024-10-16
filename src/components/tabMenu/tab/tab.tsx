@@ -7,7 +7,7 @@ import styles from './tab.module.css';
 
 type TabProps = {
     tab: 'teams' | 'employees';
-    items: string[];
+    items?: string[];
     onTabClickHandler: MouseEventHandler;
     selectedTab: 'teams' | 'employees' | '';
     onItemClickHandler: MouseEventHandler;
@@ -27,7 +27,7 @@ const Tab: FC<TabProps> = ({tab, items, onTabClickHandler, selectedTab, onItemCl
                 <p className={styles.name}>{name}</p>
                 {arrow}
             </button>
-            {selectedTab === tab &&
+            {selectedTab === 'teams' && items &&
                 <ul className={styles.items}>
                     {items.map((item, i) =>
                         <li className={styles.item} key={i}>

@@ -16,7 +16,7 @@ const TeamEmployeesShedule: FC<TeamEmployeesSheduleProps> = ({team}) => {
     const [ trainingShedule, setTrainingShedule ] = useState([])
 
     const employeesData = team.employees.map((employee, i) => {
-        let employeeInfo = {
+        const employeeInfo = {
             key: employee.id,
             number: i+1,
             name: employee.last_name + ' ' + employee.first_name,
@@ -28,7 +28,7 @@ const TeamEmployeesShedule: FC<TeamEmployeesSheduleProps> = ({team}) => {
 
     const jobs = Array.from(new Set(team.employees.map(employee => employee.job_title)));
     const jobsOptions = jobs.map(job => {
-        let jobsOption = {
+        const jobsOption = {
             value: job,
             label: job
         }
@@ -49,6 +49,8 @@ const TeamEmployeesShedule: FC<TeamEmployeesSheduleProps> = ({team}) => {
         return arrayToShow;
 
     }, [jobFilter]);
+
+    console.log('Отфильтрованная дата:', filtredData)
 
     useEffect(() => {
         getTrainingSchedule()

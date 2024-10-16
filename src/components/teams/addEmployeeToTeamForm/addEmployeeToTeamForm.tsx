@@ -20,7 +20,7 @@ const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
     const [ selectedEmployee, setSelectedEmployee ] = useState<DefaultOptionType>();
 
     const employeesData = employees.map((employee, i) => {
-        let employeeInfo = {
+        const employeeInfo = {
             key: employee.id,
             number: i+1,
             name: employee.last_name + ' ' + employee.first_name,
@@ -33,7 +33,7 @@ const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
 
     const jobs = Array.from(new Set(team.employees.map(employee => employee.job_title)));
     const jobsOptions = jobs.map(job => {
-        let jobsOption = {
+        const jobsOption = {
             value: job,
             label: job
         }
@@ -42,11 +42,11 @@ const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
 
     const grades = Array.from(new Set(team.employees.map(employee => employee.grade)));
     const gradeOptions = grades.map(grade => {
-        let jobsOption = {
+        const gradeOption = {
             value: grade,
             label: grade
         }
-        return jobsOption;
+        return gradeOption;
     })
 
     const filtredData = useMemo(() => {
@@ -70,7 +70,7 @@ const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
     }
 
     const employeesOptions = filtredData.map(employee => {
-        let jobsOption = {
+        const jobsOption = {
             value: employee.name,
             id: employee.key
         }

@@ -1,17 +1,17 @@
 import { FC, useContext, useState, useMemo } from 'react';
-import { Input } from "antd";
+import { Input, Table } from "antd";
 import { Tabs } from 'antd';
 import { Select } from 'antd';
 import { dataColumns } from '../../../data/dataEmployees';
 import { EmployeesContext } from '../../../utils/employeesContext';
 import SearchIcon from '../../icons/loupe/loupe';
 import UnWrap from '../../icons/unWrap/unWrap';
-import TableComponent from '../../table/table';
 import SummaryContainer from '../../summaryContainer/summaryContainer';
 import EmployeeAssessment from '../employeeAssessment/employeeAssessment';
 import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
 import IPR from '../../IPR/IPR';
 import styles from './employeesInfo.module.css';
+import { useNavigate } from 'react-router-dom';
 
 type SelectedEmplyeeInfoProps = {
     selectedEmployee: string;
@@ -43,10 +43,10 @@ const EmployessInfo: FC<EmployessInfoProps> = ({selectedInfo}) => {
 
 const AllEmployeesInfo = () => {
     const [ employees ] = useContext(EmployeesContext);
+    const navigate = useNavigate();
     const [ jobFilter, setJobFilter ] = useState<string | null>('');
     const [ teamFilter, setTeamFilter ] = useState('');
     const [ searchValue, setSearchValue ] = useState('');
-    console.log(searchValue);
 
     const employeesData: EmployeeRecord[] = employees.map((employee, i) => ({
         key: employee.id,
@@ -122,7 +122,16 @@ const AllEmployeesInfo = () => {
                 </div>
             </div>
             <div className={styles.table}>
-                <TableComponent data={filtredData} columns={dataColumns}/>
+                <Table
+                    dataSource={filtredData}
+                    columns={dataColumns} 
+                    pagination={false}
+                    onRow={(record) => {
+                        return {
+                          onClick: () => {navigate(`${record.key}`)},
+                        };
+                      }}
+                />
             </div>
         </div>
     )

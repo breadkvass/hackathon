@@ -21,7 +21,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
     const [ employeeToReplace, setEmployeeToReplace ] = useState<DefaultOptionType>();
 
     const employeesData = employees.map((employee, i) => {
-        let employeeInfo = {
+        const employeeInfo = {
             key: employee.id,
             number: i+1,
             name: employee.last_name + ' ' + employee.first_name,
@@ -35,7 +35,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
 
     const jobs = Array.from(new Set(employees.map(employee => employee.job_title)));
     const jobsOptions = jobs.map(job => {
-        let jobsOption = {
+        const jobsOption = {
             value: job,
             label: job
         }
@@ -44,7 +44,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
 
     const teams = Array.from(new Set(employees.map(employee => employee.teams[0]))).filter(team => team !== undefined);
     const teamsOptions = teams.map(team => {
-        let teamsOption = {
+        const teamsOption = {
             value: team,
             label: team
         }
@@ -75,7 +75,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
     }
 
     const employeesOptions = filtredData.map(employee => {
-        let jobsOption = {
+        const jobsOption = {
             value: employee.name,
             id: employee.key
         }
@@ -86,21 +86,15 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
         e.preventDefault();
         const employeeToDelete = employee;
         
-        
-        if (employeeToReplace) {  
-            // const employeeToDelete = employees.filter(employee => employee.id === employeeToDelete.id)[0];
+        if (employeeToReplace) {
             const users = team.employees.filter(employee => employee.id !== employeeToDelete.id);
             const selectedEmployee = employees.filter(employee => employee.id === employeeToReplace.id)[0]
             users.push(selectedEmployee);
-
             team.users = users.map(user => user.id);
-
-            
 
             try {
                 updateTeam(team);
-                console.log(team);
-                // closeModal()
+                closeModal()
             }
             catch {new Error('Ошибка отправки данных')}
         }

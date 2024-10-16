@@ -3,7 +3,7 @@ import ChartLayout from '../chartLayout/chartLayout';
 import { FC } from 'react';
 
 type BarChartProps = {
-    value?: any[];
+    value?: { skills?: string; assessment?: number; person?: string; }[];
     colors?: string[];
     maxY?: number;
     type: string;

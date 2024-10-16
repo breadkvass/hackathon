@@ -4,7 +4,7 @@ import Badge from '../icons/badge/badge';
 import styles from './summaryContainer.module.css';
 
 type SummaryContainerProps = {
-    result: number | string;
+    result?: number | string;
     type: string;
     factor: boolean;
 }

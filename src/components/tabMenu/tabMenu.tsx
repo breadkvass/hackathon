@@ -8,13 +8,12 @@ type TabMenuProps = {
     onEmployeesClickHandler: MouseEventHandler;
     onItemClickHandler: MouseEventHandler;
     selectedTab: 'teams' | 'employees' | '';
+    employee?: string
 }
 
 const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler,onEmployeesClickHandler, onItemClickHandler, selectedTab}) => {
     const [ teams ] = useContext(TeamsContext);
     const teamsNames = teams.map(team => team.name);
-
-    const employees = [ 'Акимов Роберт' ];
     
     return (
         <nav className={styles.sidebar}>
@@ -26,7 +25,6 @@ const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler,onEmployeesClickHandler,
                     onItemClickHandler={onItemClickHandler}
                 />
                 <Tab tab={'employees'}
-                    items={employees}
                     onTabClickHandler={onEmployeesClickHandler}
                     selectedTab={selectedTab}
                     onItemClickHandler={onItemClickHandler}

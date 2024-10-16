@@ -1,35 +1,43 @@
 import { Select } from 'antd';
 import UnWrap from '../icons/unWrap/unWrap';
 import styles from './IPR.module.css';
+import { Employee } from '../../utils/types';
+import { FC, useState } from 'react';
 
-const IPR = () => {
-    const handleChange = (value: string) => {
-        console.log(`selected ${value}`);
-    };
+type IPRProps = {
+    employee?: Employee
+}
+
+const IPR: FC<IPRProps> = ({employee}) => {
+    const [ year, setYear ] = useState();
+    const [ kvartal, setKvartal ] = useState();
     
+    console.log('Сотрудник:', employee);
+    console.log('Выбранный год:', year);
+    console.log('Выбранный квартал:', kvartal);
     return (
         <div className={styles.ipr}>
             <div className={styles.selects}>
                 <Select
                     suffixIcon={<UnWrap />}
                     className={styles.dropdown}
-                    onChange={handleChange}
+                    onChange={(value) => setYear(value)}
                     placeholder='Год'
                     options={[
-                        { value: '1', label: '2024' },
-                        { value: '2', label: '2023' }
+                        { value: '2024', label: '2024' },
+                        { value: '2023', label: '2023' }
                     ]}
                 />
                 <Select
                     suffixIcon={<UnWrap />}
                     className={styles.dropdown}
-                    onChange={handleChange}
+                    onChange={(value) => setKvartal(value)}
                     placeholder='Квартал'
                     options={[
-                        { value: '1', label: '1 квартал' },
-                        { value: '2', label: '2 квартал' },
-                        { value: '3', label: '3 квартал' },
-                        { value: '4', label: '4 квартал' },
+                        { value: '1 кв', label: '1 кв' },
+                        { value: '2 кв', label: '2 кв' },
+                        { value: '3 кв', label: '3 кв' },
+                        { value: '4 кв', label: '4 кв' },
                     ]}
                 />
             </div>

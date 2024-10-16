@@ -23,7 +23,7 @@ function EmployeesPage() {
 
     const checkInfo = (e: ChangeEvent<HTMLButtonElement>) => {
         if (selectedInfo !== e.target.textContent) {
-            setSelectedInfo(e.target.textContent as string);
+            setSelectedInfo('');
         }
     }
 
@@ -31,6 +31,8 @@ function EmployeesPage() {
         getEmployees()
         .then(res => setEmployees(res.results));
     },[])
+
+    console.log('Все сотрудники:', employees)
 
     return (
         <Layout>
@@ -41,6 +43,7 @@ function EmployeesPage() {
                     onEmployeesClickHandler={() => setSelected('employees')}
                     onItemClickHandler={(e: any) => checkInfo(e)}
                     selectedTab={selectedTab}
+                    employee={selectedTab}
                 />
                <EmployessInfo selectedInfo={selectedInfo}/>
             </div>
