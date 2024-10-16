@@ -1,11 +1,10 @@
-import { FC, useState, useMemo, useContext, FormEvent, useCallback } from 'react';
+import { FC, useState, useMemo, useContext, FormEvent } from 'react';
 import { Team } from '../../../utils/types';
 import { Select } from 'antd';
 import { EmployeesContext } from '../../../utils/employeesContext';
 import UnWrap from '../../icons/unWrap/unWrap';
 import styles from './addEmployeeToTeamForm.module.css';
 import { DefaultOptionType } from 'antd/es/select';
-import { TeamsContext } from '../../../utils/teamsContext';
 import { ModalContext } from '../../../hooks/useModal/useModalProvider';
 import { updateTeam } from '../../../utils/api';
 
@@ -16,7 +15,6 @@ type AddEmployeeToTeamFormProps = {
 const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
     const [ , closeModal ] = useContext(ModalContext);
     const [ employees ] = useContext(EmployeesContext);
-    const [ teams, setTeams ] = useContext(TeamsContext);
     const [ jobFilter, setJobFilter ] = useState('');
     const [ gradeFilter, setGradeFilter ] = useState('');
     const [ selectedEmployee, setSelectedEmployee ] = useState<DefaultOptionType>();

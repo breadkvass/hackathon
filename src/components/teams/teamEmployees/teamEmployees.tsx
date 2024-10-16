@@ -61,7 +61,6 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
     };
 
     const addEmployeeButtonHandler = () => {
-        console.log('add employee')
         openModal(
             <Modal closeHandler={closeModal}>
                 <AddEmployeeToTeamForm team={team}/>
