@@ -3,30 +3,23 @@ import { Team } from '../../../utils/types';
 import { Select } from 'antd';
 import { EmployeesContext } from '../../../utils/employeesContext';
 import UnWrap from '../../icons/unWrap/unWrap';
-import styles from './addEmployeeToTeamComponent.module.css';
-import { addEmployeeToTeam } from '../../../utils/api';
+import styles from './addEmployeeToTeamForm.module.css';
 import { DefaultOptionType } from 'antd/es/select';
+import { TeamsContext } from '../../../utils/teamsContext';
+import { ModalContext } from '../../../hooks/useModal/useModalProvider';
+import { updateTeam } from '../../../utils/api';
 
-type AddEmployeeToTeamComponentProps = {
+type AddEmployeeToTeamFormProps = {
     team: Team;
 }
 
-// type SelectedEmployee = {
-//         value: string;
-//         id: number;
-//     } | {
-//         value: string;
-//         id: number;
-//     }[];
-
-const AddEmployeeToTeamComponent: FC<AddEmployeeToTeamComponentProps> = ({team}) => {
+const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
+    const [ , closeModal ] = useContext(ModalContext);
+    const [ employees ] = useContext(EmployeesContext);
+    const [ teams, setTeams ] = useContext(TeamsContext);
     const [ jobFilter, setJobFilter ] = useState('');
     const [ gradeFilter, setGradeFilter ] = useState('');
-    const [ employees ] = useContext(EmployeesContext);
-    const [ employee, setEmployee ] = useState<DefaultOptionType>();
-
-    // const selectedEmployeeName = employee?.value;
-    // console.log(employee);
+    const [ selectedEmployee, setSelectedEmployee ] = useState<DefaultOptionType>();
 
     const employeesData = employees.map((employee, i) => {
         let employeeInfo = {
@@ -75,7 +68,7 @@ const AddEmployeeToTeamComponent: FC<AddEmployeeToTeamComponentProps> = ({team})
 
 
     const handleChange =  (_:string, option: DefaultOptionType) => {
-        setEmployee(option);
+        setSelectedEmployee(option);
     }
 
     const employeesOptions = filtredData.map(employee => {
@@ -88,18 +81,22 @@ const AddEmployeeToTeamComponent: FC<AddEmployeeToTeamComponentProps> = ({team})
 
     const submitHandler = (e: FormEvent) => {
         e.preventDefault();
-        if (employee) {  
-            addEmployeeToTeam(employee.id);
+        const users = team.employees;
+        if (selectedEmployee) {  
+            const employee = employees.filter(employee => employee.id === selectedEmployee.id)[0];
+            users.push(employee);
+            team.users = users.map(user => user.id);
+            try {
+                updateTeam(team);
+                closeModal()
+            }
+            catch {new Error('Ошибка отправки данных')}
         }
     }
 
-    console.log(team);
-
     const resetHandler = (e: FormEvent) => {
         e.preventDefault();
-        // console.log('reset', jobFilter, gradeFilter);
-        setGradeFilter('');
-        setJobFilter('')
+        closeModal();
     }
 
     return (
@@ -146,12 +143,12 @@ const AddEmployeeToTeamComponent: FC<AddEmployeeToTeamComponentProps> = ({team})
                     </label>
                 </div>
                 <div className={styles.buttons}>
-                    <button type='reset' className={styles.button + ' ' + styles.reset} disabled={!jobFilter && !gradeFilter}>Отменить</button>
-                    <button type='submit' className={styles.button + ' ' + styles.submit} disabled={!employee}>Добавить</button>
+                    <button type='reset' className={styles.button + ' ' + styles.reset}>Отменить</button>
+                    <button type='submit' className={styles.button + ' ' + styles.submit} disabled={!selectedEmployee}>Добавить</button>
                 </div>
             </form>
         </div>
     )
 }
 
-export default AddEmployeeToTeamComponent;
+export default AddEmployeeToTeamForm;

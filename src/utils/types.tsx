@@ -7,6 +7,7 @@ export type Team = {
     average_hard_skills: string,
     average_soft_skills: string,
     employees: Employee[],
+    users?: number[]
     bus_factor: number
 }
 

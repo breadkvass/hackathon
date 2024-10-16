@@ -1,3 +1,5 @@
+import { Team } from "./types";
+
 const URL = 'http://localhost:8000/api';
 
 const checkResponse = (res: Response) => {
@@ -71,10 +73,10 @@ export const getTrainingSchedule = () => {
   .then(checkResponse);
 }
 
-export const addEmployeeToTeam = (id: number) => {
-  return fetch(`${URL}/v1/teams/{id}/`, {
-    method: "POST",
+export const updateTeam = (team: Team) => {
+  return fetch(`${URL}/v1/teams/${team.id}/`, {
+    method: "PUT",
     headers: headersWithAuthorizeFn(),
-    body: JSON.stringify(id),
+    body: JSON.stringify(team),
   }).then(checkResponse);
 }
