@@ -28,8 +28,6 @@ type EmployeeRecord = {
 const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
     const [ openModal, closeModal ] = useContext(ModalContext);
     const [ jobFilter, setJobFilter ] = useState<string | null>('');
-    const [ selectedEmployeeId, setSelectedEmployeeId ] = useState(0);
-    const selectedEmployee = useMemo(() => team.employees.find(employee => employee.id === selectedEmployeeId), [selectedEmployeeId]);
     
     const employeesData: EmployeeRecord[] = team.employees.map((employee, i) => ({
         key: employee.id,
@@ -73,8 +71,12 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
     // }
 
     const replaceEmployeeButtonClickHandler = (employeeId: number) => {
-        // setSelectedEmployee(id);
-        // setIsModal('replace');
+        const selectedEmployee = team.employees.filter(employee => employee.id === employeeId)[0];
+        openModal(
+            <Modal closeHandler={closeModal}>
+                <ReplaceEmployeeForm employee={selectedEmployee} team={team}/>
+            </Modal>
+        )
         console.log(`replace ${employeeId}`);
     }
 
@@ -137,7 +139,7 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
                     <Column
                         title="Действие"
                         key="action"
-                        render={(_: any, record: EmployeeRecord) => <EmployeeActionButtons employeeId={record.key} onReplace={replaceEmployeeButtonClickHandler} onDelete={deleteEmployeeButtonClickHandler} />}
+                        render={(_: any, record: EmployeeRecord) => <EmployeeActionButtons employeeId={record.key} onReplace={() => replaceEmployeeButtonClickHandler(record.key)} onDelete={deleteEmployeeButtonClickHandler} />}
                     />
                 </Table>
             </div>            

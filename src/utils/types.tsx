@@ -17,7 +17,8 @@ export type Employee = {
     last_name: string,
     job_title: string,
     grade: string,
-    competence: Competence
+    competence: Competence,
+    teams: string[]
 }
 
 export type Competence = {
