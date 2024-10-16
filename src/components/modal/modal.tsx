@@ -5,7 +5,7 @@ import Cross from "../icons/cross/cross";
 
 type ModalProps = {
     // padding?: string;
-    title: string;
+    title?: string;
     children: ReactNode;
     closeHandler: Function;
 }

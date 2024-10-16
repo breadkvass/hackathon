@@ -6,6 +6,7 @@ import { TeamsContextProvider } from "./utils/teamsContext"
 import router from "./App";
 import "./index.css";
 import { EmployeesContextProvider } from "./utils/employeesContext";
+import { ModalContextProvider } from "./hooks/useModal/useModalProvider";
 
 const themeConfig = {
   token: {
@@ -34,7 +35,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <TeamsContextProvider>
       <EmployeesContextProvider>
         <ConfigProvider theme={themeConfig}>
-          <RouterProvider router={router} />
+          <ModalContextProvider>
+            <RouterProvider router={router} />
+          </ModalContextProvider>
         </ConfigProvider>
       </EmployeesContextProvider>
     </TeamsContextProvider>
