@@ -17,7 +17,11 @@
 </ul>
 
 ## Задеплоенное приложение
-Проект размещен на https://dashboard-hakaton.hopto.org/
+Проект размещен на сайтах:
+
+https://hackathon-team2.ru/
+
+https://dashboard-hakaton.hopto.org/
 
 ## Сборка
 npm i
