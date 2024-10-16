@@ -95,8 +95,6 @@ const SelectedTeamInfo: FC<SelectedTeamInfoProps> = ({selectedTeam}) => {
                 <div className={styles.summary}>
                     <SummaryContainer result={team.employee_count} type='Количество сотрудников' factor={false}/>
                     <SummaryContainer result={averageAssessment ? averageAssessment : ''} type='Средняя оценка команды' factor={true}/>
-                    <SummaryContainer result={team.average_soft_skills} type='Soft Skills' factor={true}/>
-                    <SummaryContainer result={team.average_hard_skills} type='Hard Skills' factor={true}/>
                     <SummaryContainer result={team.bus_factor ? 1 : 0} type='Bus factor' factor={true}/>
                     <SummaryContainer result={team.stress_level} type='Коэффициент стресса средний' factor={true}/>
                 </div>}

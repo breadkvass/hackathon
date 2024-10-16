@@ -1,9 +1,8 @@
 import { FC } from 'react';
-import { dataDynamics, dataStress } from '../../../data/data';
+import { dataStress } from '../../../data/data';
 import { dataBus, dataBusColumns } from '../../../data/dataBus';
 import BarChart from '../../charts/barChart/barChart';
 import ChartLayout from '../../charts/chartLayout/chartLayout';
-import ColumnChart from '../../charts/columnChart/columnChart';
 import LineChart from '../../charts/lineChart/lineChart';
 import styles from './teamAnalytics.module.css';
 import { Team } from '../../../utils/types';
@@ -43,21 +42,6 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
         <div className={styles.analytics}>
             <h3 className={styles.title}>2024 год</h3>
             <div className={styles.graphics}>
-                    <ColumnChart
-                        type='Динамика средней оценки по доменам'
-                        value={dataDynamics}
-                        colors={[
-                            'linear-gradient(90deg, rgba(235, 72, 105, 0.25) 0%, rgba(235, 72, 105, 0.3) 25%, rgba(235, 72, 105, 0.35) 50%, rgba(235, 72, 105, 0.45) 75%)',
-                            'linear-gradient(90deg, rgba(70, 135, 255, 0.25) 0%, rgba(70, 135, 255, 0.3) 25%, rgba(70, 135, 255, 0.35) 50%, rgba(70, 135, 255, 0.45) 75%)']}
-                        maxY={5}
-                        width={686}
-                    />
-                    <LineChart
-                        type='Уровень стресса'
-                        value={dataStress}
-                        maxY={5}
-                        width={312}
-                    />
                     <BarChart
                         type='Средняя оценка скиллов по сотруднику'
                         value={dataSkillsAssessment}
@@ -65,6 +49,12 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
                         colors={[
                             'linear-gradient(180deg, rgba(235, 72, 105, 0.25) 0%, rgba(235, 72, 105, 0.3) 25%, rgba(235, 72, 105, 0.35) 50%, rgba(235, 72, 105, 0.45) 75%)',
                             'linear-gradient(180deg, rgba(70, 135, 255, 0.25) 0%, rgba(70, 135, 255, 0.3) 25%, rgba(70, 135, 255, 0.35) 50%, rgba(70, 135, 255, 0.45) 75%)']}
+                    />
+                    <LineChart
+                        type='Уровень стресса'
+                        value={dataStress}
+                        maxY={5}
+                        width={312}
                     />
                     <ChartLayout type='Bus фактор'>
                         <Table dataSource={dataBus} columns={dataBusColumns} pagination={false}/>
