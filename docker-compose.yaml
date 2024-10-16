@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  frontend:
+    image: breadkvass/dashboard_frontend
+    ports: 
+     - 80:8080
+    depends_on:
+      - backend
+
+  backend:
+    image: kalmmar4uk/dashboard_backend
+    ports:
+      - 8000:8000
