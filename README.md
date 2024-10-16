@@ -23,6 +23,12 @@ npm run dev - запуск dev-режима
 
 npm run build - прод билд
 
+**Для авторизации на сайте используйте**
+
+почта: admin@mail.ru
+
+пароль: Admin321
+
 ## Стэк технологий
 React, TypeScript, Vite
 
