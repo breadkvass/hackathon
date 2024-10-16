@@ -43,7 +43,7 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
         <div className={styles.analytics}>
             <h3 className={styles.title}>2024 год</h3>
             <div className={styles.graphics}>
-                    {/* <ColumnChart
+                    <ColumnChart
                         type='Динамика средней оценки по доменам'
                         value={dataDynamics}
                         colors={[
@@ -57,7 +57,7 @@ const TeamAnalytics: FC<TeamAnalyticsProps> = ({team}) => {
                         value={dataStress}
                         maxY={5}
                         width={312}
-                    /> */}
+                    />
                     <BarChart
                         type='Средняя оценка скиллов по сотруднику'
                         value={dataSkillsAssessment}
