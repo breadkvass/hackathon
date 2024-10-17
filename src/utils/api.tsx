@@ -43,8 +43,9 @@ export const getTeams = () => {
   .then(checkResponse);
 };
 
-export const getTeam = (id: string) => {
+export const getTeam = (id: number) => {
   return fetch(`${URL}/v1/teams/${id}`, {
+    headers: headersWithAuthorizeFn(),
     method: "GET",
   })
   .then(checkResponse);

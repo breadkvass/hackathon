@@ -13,13 +13,13 @@ type TabMenuProps = {
 
 const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler,onEmployeesClickHandler, onItemClickHandler, selectedTab}) => {
     const [ teams ] = useContext(TeamsContext);
-    const teamsNames = teams.map(team => team.name);
+    // const teamsNames = teams.map(team => team.name);
     
     return (
         <nav className={styles.sidebar}>
             <ul className={styles.list}>
                 <Tab tab={'teams'}
-                    items={teamsNames}
+                    // items={teamsNames}
                     onTabClickHandler={onTeamsClickHandler}
                     selectedTab={selectedTab}
                     onItemClickHandler={onItemClickHandler}
