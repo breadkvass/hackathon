@@ -1,12 +1,12 @@
 import { FC, useState, useContext, useMemo, FormEvent } from 'react';
-import { Employee, Team } from '../../../utils/types';
-import { Select } from 'antd';
-import styles from './replaceEmployeeForm.module.css';
-import { EmployeesContext } from '../../../utils/employeesContext';
 import { DefaultOptionType } from 'antd/es/select';
-import UnWrap from '../../icons/unWrap/unWrap';
+import { Select } from 'antd';
+import { Employee, Team } from '../../../utils/types';
+import { EmployeesContext } from '../../../utils/employeesContext';
 import { ModalContext } from '../../../hooks/useModal/useModalProvider';
 import { updateEmployee } from '../../../utils/api';
+import UnWrap from '../../icons/unWrap/unWrap';
+import styles from './replaceEmployeeForm.module.css';
 
 type ReplaceEmployeeFormProps = {
     employeeToDelete: Employee;
@@ -65,10 +65,6 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employeeToDelete, te
         return arrayToShow;
 
     }, [jobFilter, teamFilter]);
-
-    console.log(employeesData.filter(employee => employee.teams.includes(teamFilter)))
-    console.log(teamFilter)
-
 
     const handleChange =  (_:string, option: DefaultOptionType) => {
         setNewEmployee(option);

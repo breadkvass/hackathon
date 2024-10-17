@@ -14,10 +14,8 @@ import IPR from '../../components/IPR/IPR';
 
 const EmployeePage = () => {
     let { id } = useParams<string>();
-
     const navigate = useNavigate();
     const [ employee, setEmployee ] = useState<Employee>();
-
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('employees');
     const [ selectedInfo, setSelectedInfo ] = useState('');
     const employeeId = Number(id);
@@ -60,8 +58,6 @@ const EmployeePage = () => {
         }
     },[])
 
-    console.log(employee);
-
     return (
         <Layout>
             <Header isAuth={true} isNotifications={true} />
@@ -76,7 +72,7 @@ const EmployeePage = () => {
                 <div className={styles.info}>
                     <div className={styles.desc}>
                         <div className={styles.top}>
-                            <h1 className={styles.title}>{employee?.first_name}</h1>
+                            <h1 className={styles.title}>{selectedInfo}</h1>
                         </div>
                         <div className={styles.summary}>
                             <SummaryContainer result={employee?.job_title} type='Должность' factor={false}/>

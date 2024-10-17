@@ -9,20 +9,15 @@ import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
-import { Team } from '../../utils/types';
 
 const TeamsPage = () => {
     const navigate = useNavigate();
-    const [ teams, setTeams ] = useContext(TeamsContext);
-    const [ employees, setEmployees ] = useContext(EmployeesContext);
+    const [ , setTeams ] = useContext(TeamsContext);
+    const [ , setEmployees ] = useContext(EmployeesContext);
     
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('teams');
     const [ selectedInfo, setSelectedInfo ] = useState('');
-    const [ selectedTeam, setSelectedTeam ] = useState<Team>()
     const [ isLoading, setIsLoading ] = useState(true);
-
-    console.log('Все команды:', teams);
-    console.log('Все сотрудники:', employees);
 
     useEffect(() => {        
         getTeams()
@@ -40,21 +35,10 @@ const TeamsPage = () => {
     }
 
     const selectInfo = async (e: ChangeEvent<HTMLButtonElement>) => {
-
         if (selectedInfo !== e.target.textContent) {
             setSelectedInfo(e.target.textContent as string);
         }
-        
-        
     }
-
-    // const findTeamIdByName = () => {
-    //     if (selectedInfo) {
-    //         const team = teams.filter(team => team.name === selectedInfo)[0];
-    //         setSelectedTeam(team);
-    //         return team;
-    //     }
-    // }
 
     return (
         <Layout>

@@ -77,7 +77,6 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
                 <ReplaceEmployeeForm employeeToDelete={selectedEmployee} team={team}/>
             </Modal>
         )
-        console.log(`replace ${employeeId}`);
     }
 
     const deleteEmployeeButtonClickHandler = (employeeId: number) => {
