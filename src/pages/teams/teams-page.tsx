@@ -1,14 +1,14 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Spin } from 'antd';
 import { TeamsContext } from '../../utils/teamsContext';
+import { EmployeesContext } from '../../utils/employeesContext';
 import { getEmployees, getTeams } from '../../utils/api';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
-import { EmployeesContext } from '../../utils/employeesContext';
-
 
 const TeamsPage = () => {
     const navigate = useNavigate();
@@ -17,16 +17,19 @@ const TeamsPage = () => {
     
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('teams');
     const [ selectedInfo, setSelectedInfo ] = useState('');
+    const [ isLoading, setIsLoading ] = useState(true);
 
     console.log('Все команды:', teams);
     console.log('Все сотрудники:', employees);
 
-    useEffect(() => {
+    useEffect(() => {        
         getTeams()
-            .then(res => setTeams(res.results));
+            .then(res => setTeams(res.results))
+            .then(() => setIsLoading(false))
         getEmployees()
             .then(res => setEmployees(res.results))
-    },[])
+            .then(() => setIsLoading(false))
+    }, [])
 
     const setSelected = (tab: 'teams' | 'employees') => {
         setSelectedTab(tab);
@@ -43,6 +46,11 @@ const TeamsPage = () => {
     return (
         <Layout>
             <Header isAuth={true} isNotifications={true} />
+            {isLoading ?
+            <div className={styles.spinner}>
+                <Spin size="large" />
+            </div>
+            :
             <div className={styles.content}>
                 <TabMenu
                     onTeamsClickHandler={() => setSelected('teams')}
@@ -50,8 +58,9 @@ const TeamsPage = () => {
                     onItemClickHandler={(e: any) => selectInfo(e)}
                     selectedTab={selectedTab}
                 />
-                <TeamsInfo selectedInfo={selectedInfo}/>                    
+                <TeamsInfo selectedInfo={selectedInfo}/>
             </div>
+            }
         </Layout>
     );
 }

@@ -5,3 +5,9 @@
     flex-direction: row;
 }
 
+.spinner {
+    margin: 0 auto;
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    margin-top: calc((100vh - 90px) / 2);
+}
