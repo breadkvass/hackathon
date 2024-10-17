@@ -6,19 +6,19 @@ import { EmployeesContext } from '../../../utils/employeesContext';
 import { DefaultOptionType } from 'antd/es/select';
 import UnWrap from '../../icons/unWrap/unWrap';
 import { ModalContext } from '../../../hooks/useModal/useModalProvider';
-import { updateTeam } from '../../../utils/api';
+import { updateEmployee } from '../../../utils/api';
 
 type ReplaceEmployeeFormProps = {
-    employee: Employee;
+    employeeToDelete: Employee;
     team: Team
 }
 
-const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => {
+const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employeeToDelete, team}) => {
     const [ , closeModal ] = useContext(ModalContext);
     const [ jobFilter, setJobFilter ] = useState('');
     const [ teamFilter, setTeamFilter ] = useState('');
     const [ employees ] = useContext(EmployeesContext);
-    const [ employeeToReplace, setEmployeeToReplace ] = useState<DefaultOptionType>();
+    const [ newEmployee, setNewEmployee ] = useState<DefaultOptionType>();
 
     const employeesData = employees.map((employee, i) => {
         const employeeInfo = {
@@ -71,7 +71,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
 
 
     const handleChange =  (_:string, option: DefaultOptionType) => {
-        setEmployeeToReplace(option);
+        setNewEmployee(option);
     }
 
     const employeesOptions = filtredData.map(employee => {
@@ -84,17 +84,11 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
 
     const submitHandler = (e: FormEvent) => {
         e.preventDefault();
-        const employeeToDelete = employee;
         
-        if (employeeToReplace) {
-            const users = team.employees.filter(employee => employee.id !== employeeToDelete.id);
-            const selectedEmployee = employees.filter(employee => employee.id === employeeToReplace.id)[0]
-            users.push(selectedEmployee);
-            team.users = users.map(user => user.id);
-
+        if (employeeToDelete && newEmployee) {
             try {
-                updateTeam(team);
-                closeModal()
+                updateEmployee(employeeToDelete.id, newEmployee.id, team.id);
+                closeModal();
             }
             catch {new Error('Ошибка отправки данных')}
         }
@@ -110,7 +104,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
             <form className={styles.form} onSubmit={(e) => submitHandler(e)} onReset={(e) => resetHandler(e)}>
                 <label className={styles.label}>
                     <p className={styles.type}>Сотрудник</p>
-                    <input disabled placeholder={employee.last_name + ' ' + employee.first_name}></input>
+                    <input disabled placeholder={employeeToDelete.last_name + ' ' + employeeToDelete.first_name}></input>
                 </label>
                 <div className={styles.selects}>
                     <div className={styles.filter}>
@@ -140,7 +134,6 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
                     <label className={styles.label}>
                         <p className={styles.type}>Сотрудник</p>
                         <Select
-                            // value={}
                             suffixIcon={<UnWrap />}
                             style={{ width: '100%', height: "48px" }}
                             onChange={handleChange}
@@ -151,7 +144,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employee, team}) => 
                 </div>
                 <div className={styles.buttons}>
                     <button type='reset' className={styles.button + ' ' + styles.reset}>Отменить</button>
-                    <button type='submit' className={styles.button + ' ' + styles.submit} disabled={!employee}>Заменить</button>
+                    <button type='submit' className={styles.button + ' ' + styles.submit} disabled={!newEmployee}>Заменить</button>
                 </div>
             </form>
         </div>
