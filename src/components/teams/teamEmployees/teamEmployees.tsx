@@ -74,7 +74,7 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
         const selectedEmployee = team.employees.filter(employee => employee.id === employeeId)[0];
         openModal(
             <Modal closeHandler={closeModal}>
-                <ReplaceEmployeeForm employee={selectedEmployee} team={team}/>
+                <ReplaceEmployeeForm employeeToDelete={selectedEmployee} team={team}/>
             </Modal>
         )
         console.log(`replace ${employeeId}`);

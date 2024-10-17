@@ -81,3 +81,11 @@ export const updateTeam = (team: Team) => {
     body: JSON.stringify(team),
   }).then(checkResponse);
 }
+
+export const updateEmployee = (user_in_team: number, new_user: number, teamId: number) => {
+  return fetch(`${URL}/v1/teams/${teamId}/update_user/`, {
+    method: "PUT",
+    headers: headersWithAuthorizeFn(),
+    body: JSON.stringify({user_in_team, new_user}),
+  }).then(checkResponse);
+}
