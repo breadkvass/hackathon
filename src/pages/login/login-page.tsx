@@ -42,10 +42,10 @@ function LoginPage() {
         }
     }
 
-    const onSubmitHandler = (e: FormEvent) => {
+    const onSubmitHandler = async (e: FormEvent) => {
         e.stopPropagation();
         e.preventDefault();
-        loginUser(emailValue, passwordValue);
+        await loginUser(emailValue, passwordValue);
         navigate('/teams');
     }
 
