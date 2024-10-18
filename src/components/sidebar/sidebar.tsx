@@ -1,5 +1,5 @@
 import { FC, MouseEventHandler, useContext } from 'react';
-import styles from './tabMenu.module.css';
+import styles from './sidebar.module.css';
 import { TeamsContext } from '../../utils/teamsContext';
 import { useNavigate } from 'react-router-dom';
 import TeamsIcon from '../icons/teamsIcon/teamsIcon';
@@ -7,7 +7,7 @@ import UserIcon from '../icons/userIcon/userIcon';
 import RollUp from '../icons/rollUp/rollUp';
 import UnWrapIcon from '../icons/unWrapIcon/unWrapIcon';
 
-type TabMenuProps = {
+type SidebarProps = {
     onTeamsClickHandler: any;
     onEmployeesClickHandler: MouseEventHandler;
     onItemClickHandler: MouseEventHandler;
@@ -15,7 +15,7 @@ type TabMenuProps = {
     employee?: string;
 }
 
-const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler, onEmployeesClickHandler, onItemClickHandler, selectedTab}) => {
+const Sidebar: FC<SidebarProps> = ({onTeamsClickHandler, onEmployeesClickHandler, onItemClickHandler, selectedTab}) => {
     const [ teams ] = useContext(TeamsContext);
     const navigate = useNavigate();
     const arrow = selectedTab === selectedTab ? <RollUp /> : <UnWrapIcon />;
@@ -68,4 +68,4 @@ const TabMenu: FC<TabMenuProps> = ({onTeamsClickHandler, onEmployeesClickHandler
     );
 }
 
-export default TabMenu;
+export default Sidebar;

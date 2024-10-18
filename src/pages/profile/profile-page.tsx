@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
-import TabMenu from '../../components/tabMenu/tabMenu';
+import Sidebar from '../../components/sidebar/sidebar';
 import ProfileInfo from '../../components/profileInfo/profileInfo';
 import styles from './profile-page.module.css';
 
@@ -29,7 +29,7 @@ const ProfilePage = () => {
         <Layout>
             <Header isAuth={true} isNotifications={true} />
             <div className={styles.content}>
-                <TabMenu
+                <Sidebar
                     onTeamsClickHandler={() => setSelected('teams')}
                     onEmployeesClickHandler={() => setSelected('employees')}
                     onItemClickHandler={(e: any) => selectInfo(e)}

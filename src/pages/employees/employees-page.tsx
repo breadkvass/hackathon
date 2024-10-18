@@ -4,7 +4,7 @@ import { EmployeesContext } from "../../utils/employeesContext";
 import { getEmployees } from "../../utils/api";
 import Layout from "../../components/layout/layout";
 import Header from "../../components/header/header";
-import TabMenu from "../../components/tabMenu/tabMenu";
+import Sidebar from "../../components/sidebar/sidebar";
 import EmployessInfo from "../../components/employees/employeesInfo/employeesInfo";
 import styles from './employees-page.module.css';
 
@@ -36,7 +36,7 @@ function EmployeesPage() {
         <Layout>
             <Header isAuth={true} isNotifications={true} />
             <div className={styles.content}>
-                <TabMenu
+                <Sidebar
                     onTeamsClickHandler={() => setSelected('teams')}
                     onEmployeesClickHandler={() => setSelected('employees')}
                     onItemClickHandler={(e: any) => checkInfo(e)}

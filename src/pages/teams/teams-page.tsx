@@ -6,7 +6,7 @@ import { EmployeesContext } from '../../utils/employeesContext';
 import { getEmployees, getTeams } from '../../utils/api';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
-import TabMenu from '../../components/tabMenu/tabMenu';
+import Sidebar from '../../components/sidebar/sidebar';
 import styles from './teams-page.module.css';
 import AllTeamsInfo from '../../components/teams/allTeamsInfo/allTeamsInfo';
 
@@ -49,7 +49,7 @@ const TeamsPage = () => {
             </div>
             :
             <div className={styles.content}>
-                <TabMenu
+                <Sidebar
                     onTeamsClickHandler={() => setSelected('teams')}
                     onEmployeesClickHandler={() => setSelected('employees')}
                     onItemClickHandler={(e: any) => selectInfo(e)}

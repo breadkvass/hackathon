@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState, ChangeEvent } from 'react';
 import Header from '../../components/header/header';
 import Layout from '../../components/layout/layout';
-import TabMenu from '../../components/tabMenu/tabMenu';
+import Sidebar from '../../components/sidebar/sidebar';
 import styles from './employee-page.module.css';
 import { getEmployee } from '../../utils/api';
 import { Employee } from '../../utils/types';
@@ -62,7 +62,7 @@ const EmployeePage = () => {
         <Layout>
             <Header isAuth={true} isNotifications={true} />
             <div className={styles.content}>
-                <TabMenu
+                <Sidebar
                     onTeamsClickHandler={() => setSelected('teams')}
                     onEmployeesClickHandler={() => setSelected('employees')}
                     onItemClickHandler={(e: any) => checkInfo(e)}
