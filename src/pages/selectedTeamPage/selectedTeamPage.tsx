@@ -62,9 +62,44 @@ const SelectedTeamPage = () => {
             key: "3",
             label: "Сотрудники",
             children: <TeamEmployees team={team}/>,
-          },
-      ];
-    
+        },
+    ];
+
+    const badgeAverageAssessmentStyle = () => {
+        if (team && averageAssessment >= 4) {
+            return styles.green;
+        } else if (team && averageAssessment >= 3 && averageAssessment < 4) {
+            return styles.orange;
+        } else if (team && averageAssessment < 3) {
+            return styles.red;
+        }
+    }
+
+    const busFactor = team && team.employees.filter(employee => employee.bus_factor === true).length;
+
+    const badgeBusFactorStyle = () => {
+        if (team && busFactor) {
+            const percent = busFactor / team.employees.length * 100;
+            if (percent >= 60) {
+                return styles.green;
+            } else if (percent >= 30 && percent < 60) {
+                return styles.orange;
+            } else if (percent < 30) {
+                return styles.red;
+            }
+        }
+    }
+
+    const badgeStressStyle = () => {
+        if (team && team.stress_level >= 3.5) {
+            return styles.red;
+        } else if (team && team.stress_level >= 2.5 && team.stress_level < 3.5) {
+            return styles.orange;
+        } else if (team && team.stress_level < 2.5) {
+            return styles.green;
+        }
+    }
+    console.log(team?.employee_count);
 
     useEffect(() => {
         getTeam(teamId)
@@ -92,10 +127,10 @@ const SelectedTeamPage = () => {
                 </div>
                 {team &&
                 <div className={styles.summary}>
-                    <SummaryContainer numberResult={team.employee_count} type='Количество сотрудников' factor={false}/>
-                    <SummaryContainer numberResult={averageAssessment} type='Средняя оценка команды' factor={true}/>
-                    <SummaryContainer numberResult={team.bus_factor ? 1 : 0} type='Bus factor' factor={true}/>
-                    <SummaryContainer numberResult={team.stress_level} type='Коэффициент стресса средний' factor={true}/>
+                    <SummaryContainer result={team.employee_count} type='Количество сотрудников' factor={false}/>
+                    <SummaryContainer style={badgeAverageAssessmentStyle()} numberResult={averageAssessment} type='Средняя оценка команды' factor={true}/>
+                    <SummaryContainer style={badgeBusFactorStyle()} numberResult={busFactor} type='Bus factor' factor={true}/>
+                    <SummaryContainer style={badgeStressStyle()} numberResult={team.stress_level} type='Коэффициент стресса средний' factor={true}/>
                 </div>}
                 
             </div>

@@ -20,7 +20,8 @@ export type Employee = {
     competence: Competence,
     teams: string[],
     stress_level: number,
-    coef_conformity: number
+    coef_conformity: number,
+    bus_factor: boolean
 }
 
 export type Competence = {
