@@ -7,8 +7,8 @@ import { getEmployees, getTeams } from '../../utils/api';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import TabMenu from '../../components/tabMenu/tabMenu';
-import TeamsInfo from '../../components/teams/teamsInfo/teamsInfo';
 import styles from './teams-page.module.css';
+import AllTeamsInfo from '../../components/teams/allTeamsInfo/allTeamsInfo';
 
 const TeamsPage = () => {
     const navigate = useNavigate();
@@ -55,7 +55,7 @@ const TeamsPage = () => {
                     onItemClickHandler={(e: any) => selectInfo(e)}
                     selectedTab={selectedTab}
                 />
-                <TeamsInfo selectedInfo={selectedInfo}/>
+                <AllTeamsInfo />
             </div>
             }
         </Layout>
