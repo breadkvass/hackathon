@@ -7,7 +7,7 @@ export type Team = {
     average_hard_skills: string,
     average_soft_skills: string,
     employees: Employee[],
-    users?: number[]
+    users?: number[],
     bus_factor: number
 }
 
@@ -18,7 +18,9 @@ export type Employee = {
     job_title: string,
     grade: string,
     competence: Competence,
-    teams: string[]
+    teams: string[],
+    stress_level: number,
+    coef_conformity: number
 }
 
 export type Competence = {

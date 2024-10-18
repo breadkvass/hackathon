@@ -11,7 +11,6 @@ import AllEmployeesInfo from "../../components/employees/allEmployeesInfo/allEmp
 function EmployeesPage() {
     const navigate = useNavigate();
     const [ , setEmployees ] = useContext(EmployeesContext);
-
     const [ selectedTab, setSelectedTab ]= useState<'teams' | 'employees'>('employees');
     const [ selectedInfo, setSelectedInfo ] = useState('');
 

@@ -163,10 +163,10 @@ const SelectedEmployeeInfo: FC<SelectedEmplyeeInfoProps> = ({selectedEmployee}) 
                     <h1 className={styles.title}>{selectedEmployee}</h1>
                 </div>
                 <div className={styles.summary}>
-                    <SummaryContainer result={'Дизайнер'} type='Должность' factor={false}/>
-                    <SummaryContainer result={'Middle'} type='Грейд' factor={false}/>
-                    <SummaryContainer result={1.0} type='Коэф. стресса' factor={true}/>
-                    <SummaryContainer result={1.0} type='Коэф. соответствия' factor={true}/>
+                    <SummaryContainer textResult={'Дизайнер'} type='Должность' factor={false}/>
+                    <SummaryContainer textResult={'Middle'} type='Грейд' factor={false}/>
+                    <SummaryContainer numberResult={1.0} type='Коэф. стресса' factor={true}/>
+                    <SummaryContainer numberResult={1.0} type='Коэф. соответствия' factor={true}/>
                 </div>
             </div>
             <div className={styles.charts}>

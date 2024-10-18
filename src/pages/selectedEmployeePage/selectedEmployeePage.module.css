@@ -47,3 +47,15 @@
     width: 100%;
     gap: 24px;
 }
+
+.orange circle {
+    fill: var(--system-orange);
+}
+
+.red circle {
+    fill: var(--system-error);
+}
+
+.green circle {
+    fill: var(--system-success);
+}

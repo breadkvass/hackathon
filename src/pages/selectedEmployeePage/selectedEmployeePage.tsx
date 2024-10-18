@@ -55,6 +55,24 @@ const SelectedEmployeePage = () => {
         .then(res => setEmployee(res));
     },[])
 
+    const badgeStressStyle = () => {
+        if (employee && employee.stress_level >= 3.5) {
+            return styles.red;
+        } else if (employee && employee.stress_level >= 2.5 && employee.stress_level < 3.5) {
+            return styles.orange;
+        } else if (employee && employee.stress_level >= 0 && employee.stress_level < 2.5) {
+            return styles.green;
+        }
+    }
+
+    const badgeConformityStyle = () => {
+        if (employee && employee.coef_conformity < 1) {
+            return styles.orange;
+        } else if (employee && employee.stress_level === 1) {
+            return styles.green;
+        }
+    }
+
     return (
         <Layout>
             <Header isAuth={true} isNotifications={true} />
@@ -72,10 +90,10 @@ const SelectedEmployeePage = () => {
                             <h1 className={styles.title}>{employee?.last_name + ' ' + employee?.first_name}</h1>
                         </div>
                         <div className={styles.summary}>
-                            <SummaryContainer result={employee?.job_title} type='Должность' factor={false}/>
-                            <SummaryContainer result={employee?.grade} type='Грейд' factor={false}/>
-                            <SummaryContainer result={1.0} type='Коэф. стресса' factor={true}/>
-                            <SummaryContainer result={1.0} type='Коэф. соответствия' factor={true}/>
+                            <SummaryContainer textResult={employee?.job_title} type='Должность' factor={false}/>
+                            <SummaryContainer textResult={employee?.grade} type='Грейд' factor={false}/>
+                            <SummaryContainer style={badgeStressStyle()} numberResult={employee?.stress_level} type='Коэф. стресса' factor={true}/>
+                            <SummaryContainer style={badgeConformityStyle()} numberResult={employee?.coef_conformity} type='Коэф. соответствия' factor={true}/>
                         </div>
                     </div>
                     <div className={styles.charts}>

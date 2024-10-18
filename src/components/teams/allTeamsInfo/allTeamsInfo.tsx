@@ -25,8 +25,8 @@ const AllTeamsInfo = () => {
                     </button>
                 </div>
                 <div className={styles.summary}>
-                    <SummaryContainer result={teams.length} type='команд' factor={false} />
-                    <SummaryContainer result={100} type='сотрудников' factor={false} />
+                    <SummaryContainer numberResult={teams.length} type='команд' factor={false} />
+                    <SummaryContainer numberResult={100} type='сотрудников' factor={false} />
                 </div>
             </div>
             <div className={styles.cards}>

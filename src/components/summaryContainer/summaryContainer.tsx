@@ -4,21 +4,23 @@ import BadgeIcon from '../icons/badgeIcon/badgeIcon';
 import styles from './summaryContainer.module.css';
 
 type SummaryContainerProps = {
-    result?: number | string;
+    numberResult?: number;
+    textResult?: string;
     type: string;
     factor: boolean;
+    style?: string;
 }
 
-const SummaryContainer: FC<SummaryContainerProps> = ({result, type, factor}) => {
+const SummaryContainer: FC<SummaryContainerProps> = ({numberResult, textResult, type, factor, style}) => {
     return (
         <div className={styles.container}>
             { !factor
             ? 
-            <p className={styles.number}>{result}</p>
+            <p className={styles.number}>{textResult}</p>
             :
             <div className={styles.summary}>
-                <BadgeIcon style={styles.margin}/>
-                <p className={styles.number}>{result}</p>
+                <BadgeIcon style={styles.margin + ' ' + style}/>
+                <p className={styles.number}>{numberResult}</p>
                 <InfoIcon />
             </div>
             }

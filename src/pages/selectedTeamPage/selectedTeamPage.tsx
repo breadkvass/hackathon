@@ -44,7 +44,7 @@ const SelectedTeamPage = () => {
         } else new Error('Ошибка вычисления средней оценки')
     }
     
-    const averageAssessment = countAverageAssessment()?.toFixed(2);
+    const averageAssessment = Number(countAverageAssessment()?.toFixed(2));
 
     const tabList = team && [
         {
@@ -92,10 +92,10 @@ const SelectedTeamPage = () => {
                 </div>
                 {team &&
                 <div className={styles.summary}>
-                    <SummaryContainer result={team.employee_count} type='Количество сотрудников' factor={false}/>
-                    <SummaryContainer result={averageAssessment ? averageAssessment : ''} type='Средняя оценка команды' factor={true}/>
-                    <SummaryContainer result={team.bus_factor ? 1 : 0} type='Bus factor' factor={true}/>
-                    <SummaryContainer result={team.stress_level} type='Коэффициент стресса средний' factor={true}/>
+                    <SummaryContainer numberResult={team.employee_count} type='Количество сотрудников' factor={false}/>
+                    <SummaryContainer numberResult={averageAssessment} type='Средняя оценка команды' factor={true}/>
+                    <SummaryContainer numberResult={team.bus_factor ? 1 : 0} type='Bus factor' factor={true}/>
+                    <SummaryContainer numberResult={team.stress_level} type='Коэффициент стресса средний' factor={true}/>
                 </div>}
                 
             </div>
