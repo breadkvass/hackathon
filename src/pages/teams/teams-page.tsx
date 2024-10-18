@@ -43,11 +43,7 @@ const TeamsPage = () => {
     return (
         <Layout>
             <Header isAuth={true} isNotifications={true} />
-            {isLoading ?
-            <div className={styles.spinner}>
-                <Spin size="large" />
-            </div>
-            :
+            
             <div className={styles.content}>
                 <Sidebar
                     onTeamsClickHandler={() => setSelected('teams')}
@@ -55,9 +51,15 @@ const TeamsPage = () => {
                     onItemClickHandler={(e: any) => selectInfo(e)}
                     selectedTab={selectedTab}
                 />
-                <AllTeamsInfo />
+                {isLoading ?
+                    <div className={styles.spinner}>
+                        <Spin size="large" />
+                    </div>
+                    :
+                    <AllTeamsInfo />
+                }
             </div>
-            }
+            
         </Layout>
     );
 }
