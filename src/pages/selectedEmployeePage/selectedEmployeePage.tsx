@@ -90,8 +90,8 @@ const SelectedEmployeePage = () => {
                             <h1 className={styles.title}>{employee?.last_name + ' ' + employee?.first_name}</h1>
                         </div>
                         <div className={styles.summary}>
-                            <SummaryContainer textResult={employee?.job_title} type='Должность' factor={false}/>
-                            <SummaryContainer textResult={employee?.grade} type='Грейд' factor={false}/>
+                            <SummaryContainer result={employee?.job_title} type='Должность' factor={false}/>
+                            <SummaryContainer result={employee?.grade} type='Грейд' factor={false}/>
                             <SummaryContainer style={badgeStressStyle()} numberResult={employee?.stress_level} type='Коэф. стресса' factor={true}/>
                             <SummaryContainer style={badgeConformityStyle()} numberResult={employee?.coef_conformity} type='Коэф. соответствия' factor={true}/>
                         </div>

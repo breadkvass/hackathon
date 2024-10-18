@@ -5,18 +5,18 @@ import styles from './summaryContainer.module.css';
 
 type SummaryContainerProps = {
     numberResult?: number;
-    textResult?: string;
+    result?: string | number;
     type: string;
     factor: boolean;
     style?: string;
 }
 
-const SummaryContainer: FC<SummaryContainerProps> = ({numberResult, textResult, type, factor, style}) => {
+const SummaryContainer: FC<SummaryContainerProps> = ({numberResult, result, type, factor, style}) => {
     return (
         <div className={styles.container}>
             { !factor
             ? 
-            <p className={styles.number}>{textResult}</p>
+            <p className={styles.number}>{result}</p>
             :
             <div className={styles.summary}>
                 <BadgeIcon style={styles.margin + ' ' + style}/>
