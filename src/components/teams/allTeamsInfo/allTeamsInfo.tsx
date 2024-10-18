@@ -4,16 +4,22 @@ import PlusIcon from '../../icons/plusIcon/plusIcon';
 import SummaryContainer from '../../summaryContainer/summaryContainer';
 import TeamCard from '../teamCard/teamCard';
 import styles from './allTeamsInfo.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const AllTeamsInfo = () => {
     const [teams] = useContext(TeamsContext);
+    const navigate = useNavigate();
+
+    const onClickButtonHadler = () => {
+        navigate('/teams/create')
+    }
 
     return (
         <div className={styles.info}>
             <div className={styles.desc}>
                 <div className={styles.top}>
                     <h1 className={styles.title}>Команды</h1>
-                    <button className={styles.create}>
+                    <button className={styles.create} onClick={() => onClickButtonHadler()}>
                         <PlusIcon />
                         Создать команду
                     </button>

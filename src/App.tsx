@@ -9,6 +9,7 @@ import EmployeesPage from "./pages/employeesPage/employeesPage";
 import ProfilePage from "./pages/profilePage/profilePage";
 import SelectedEmployeePage from "./pages/selectedEmployeePage/selectedEmployeePage";
 import SelectedTeamPage from "./pages/selectedTeamPage/selectedTeamPage";
+import CreateTeamPage from "./pages/createTeamPage/createTeamPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path="/employees" element={<EmployeesPage />} />
       <Route path="/employees/:id" element={<SelectedEmployeePage />} />
       <Route path="/teams/:id" element={<SelectedTeamPage />} />
+      <Route path="/teams/create/" element={<CreateTeamPage />} />
     </Route>
   )
 );

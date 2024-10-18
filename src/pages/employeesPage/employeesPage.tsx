@@ -5,8 +5,8 @@ import { getEmployees } from "../../utils/api";
 import Layout from "../../components/layout/layout";
 import Header from "../../components/header/header";
 import Sidebar from "../../components/sidebar/sidebar";
-import EmployessInfo from "../../components/employees/employeesInfo/employeesInfo";
 import styles from './employeesPage.module.css';
+import AllEmployeesInfo from "../../components/employees/allEmployeesInfo/allEmployeesInfo";
 
 function EmployeesPage() {
     const navigate = useNavigate();
@@ -43,7 +43,7 @@ function EmployeesPage() {
                     selectedTab={selectedTab}
                     employee={selectedTab}
                 />
-               <EmployessInfo selectedInfo={selectedInfo}/>
+               <AllEmployeesInfo />
             </div>
         </Layout>
     );
