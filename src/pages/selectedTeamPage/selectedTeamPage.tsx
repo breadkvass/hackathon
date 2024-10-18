@@ -10,9 +10,9 @@ import SummaryContainer from '../../components/summaryContainer/summaryContainer
 import TeamAnalytics from '../../components/teams/teamAnalytics/teamAnalytics';
 import TeamEmployees from '../../components/teams/teamEmployees/teamEmployees';
 import TeamEmployeesShedule from '../../components/teams/teamEmployeesShedule/teamEmployeesShedule';
-import styles from './team-page.module.css';
+import styles from './selectedTeamPage.module.css';
 
-const TeamPage = () => {
+const SelectedTeamPage = () => {
     let { id } = useParams<string>();
     const navigate = useNavigate();
     const [ team, setTeam ] = useState<Team>();
@@ -112,4 +112,4 @@ const TeamPage = () => {
     )
 }
 
-export default TeamPage;
+export default SelectedTeamPage;

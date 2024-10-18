@@ -3,12 +3,12 @@ import {
   createBrowserRouter,
   Route,
 } from "react-router-dom";
-import TeamsPage from "./pages/teams/teams-page";
-import LoginPage from "./pages/login/login-page";
-import EmployeesPage from "./pages/employees/employees-page";
-import ProfilePage from "./pages/profile/profile-page";
-import EmployeePage from "./pages/employee-page/employee-page";
-import TeamPage from "./pages/team-page/team-page";
+import TeamsPage from "./pages/teamsPage/teamsPage";
+import LoginPage from "./pages/loginPage/loginPage";
+import EmployeesPage from "./pages/employeesPage/employeesPage";
+import ProfilePage from "./pages/profilePage/profilePage";
+import SelectedEmployeePage from "./pages/selectedEmployeePage/selectedEmployeePage";
+import SelectedTeamPage from "./pages/selectedTeamPage/selectedTeamPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,8 +17,8 @@ const router = createBrowserRouter(
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/teams" element={<TeamsPage />} />
       <Route path="/employees" element={<EmployeesPage />} />
-      <Route path="/employees/:id" element={<EmployeePage />} />
-      <Route path="/teams/:id" element={<TeamPage />} />
+      <Route path="/employees/:id" element={<SelectedEmployeePage />} />
+      <Route path="/teams/:id" element={<SelectedTeamPage />} />
     </Route>
   )
 );

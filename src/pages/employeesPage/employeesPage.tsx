@@ -6,7 +6,7 @@ import Layout from "../../components/layout/layout";
 import Header from "../../components/header/header";
 import Sidebar from "../../components/sidebar/sidebar";
 import EmployessInfo from "../../components/employees/employeesInfo/employeesInfo";
-import styles from './employees-page.module.css';
+import styles from './employeesPage.module.css';
 
 function EmployeesPage() {
     const navigate = useNavigate();

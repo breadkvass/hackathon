@@ -1,18 +1,18 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState, ChangeEvent } from 'react';
+import { Tabs } from 'antd';
+import { getEmployee } from '../../utils/api';
+import { Employee } from '../../utils/types';
 import Header from '../../components/header/header';
 import Layout from '../../components/layout/layout';
 import Sidebar from '../../components/sidebar/sidebar';
-import styles from './employee-page.module.css';
-import { getEmployee } from '../../utils/api';
-import { Employee } from '../../utils/types';
 import SummaryContainer from '../../components/summaryContainer/summaryContainer';
-import { Tabs } from 'antd';
 import EmployeeAnalytics from '../../components/employees/employeeAnalytics/employeeAnalytics';
 import EmployeeAssessment from '../../components/employees/employeeAssessment/employeeAssessment';
 import IPR from '../../components/IPR/IPR';
+import styles from './selectedEmployeePage.module.css'
 
-const EmployeePage = () => {
+const SelectedEmployeePage = () => {
     let { id } = useParams<string>();
     const navigate = useNavigate();
     const [ employee, setEmployee ] = useState<Employee>();
@@ -94,4 +94,4 @@ const EmployeePage = () => {
     )
 }
 
-export default EmployeePage;
+export default SelectedEmployeePage;

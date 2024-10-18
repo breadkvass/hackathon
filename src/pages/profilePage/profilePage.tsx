@@ -4,7 +4,7 @@ import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import Sidebar from '../../components/sidebar/sidebar';
 import ProfileInfo from '../../components/profileInfo/profileInfo';
-import styles from './profile-page.module.css';
+import styles from './profilePage.module.css';
 
 
 const ProfilePage = () => {

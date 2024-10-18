@@ -4,11 +4,11 @@ import { Spin } from 'antd';
 import { TeamsContext } from '../../utils/teamsContext';
 import { EmployeesContext } from '../../utils/employeesContext';
 import { getEmployees, getTeams } from '../../utils/api';
+import AllTeamsInfo from '../../components/teams/allTeamsInfo/allTeamsInfo';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
 import Sidebar from '../../components/sidebar/sidebar';
-import styles from './teams-page.module.css';
-import AllTeamsInfo from '../../components/teams/allTeamsInfo/allTeamsInfo';
+import styles from './teamsPage.module.css';
 
 const TeamsPage = () => {
     const navigate = useNavigate();
