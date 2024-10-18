@@ -53,9 +53,6 @@ const SelectedEmployeePage = () => {
     useEffect(() => {
         getEmployee(employeeId)
         .then(res => setEmployee(res));
-        if (employee) {
-            setSelectedInfo(employee.last_name + ' ' + employee.first_name)
-        }
     },[])
 
     return (
@@ -72,7 +69,7 @@ const SelectedEmployeePage = () => {
                 <div className={styles.info}>
                     <div className={styles.desc}>
                         <div className={styles.top}>
-                            <h1 className={styles.title}>{selectedInfo}</h1>
+                            <h1 className={styles.title}>{employee?.last_name + ' ' + employee?.first_name}</h1>
                         </div>
                         <div className={styles.summary}>
                             <SummaryContainer result={employee?.job_title} type='Должность' factor={false}/>
