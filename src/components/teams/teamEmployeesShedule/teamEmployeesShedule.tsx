@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Select } from 'antd';
 import { Team } from '../../../utils/types';
-import UnWrap from '../../icons/unWrap/unWrap';
+import UnWrapIcon from '../../icons/unWrapIcon/unWrapIcon';
 import styles from './teamEmployeesShedule.module.css';
 import { FC } from 'react';
 import { getTrainingSchedule } from '../../../utils/api';
@@ -64,7 +64,7 @@ const TeamEmployeesShedule: FC<TeamEmployeesSheduleProps> = ({team}) => {
         <div className={styles.analytics}>
             <div className={styles.top}>
                 <Select 
-                    suffixIcon={<UnWrap />}
+                    suffixIcon={<UnWrapIcon />}
                     className={styles.dropdown}
                     onChange={handleChange}
                     placeholder='Должность'

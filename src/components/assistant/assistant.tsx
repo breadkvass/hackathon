@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import CaretUp from '../icons/caretUp/caretUp';
 import AvatarAssistant from '../../assets/images/avatar-assistant.svg';
-import CaretDown from '../icons/caretDown/caretDown';
-import ArrowUp from '../icons/arrowUp/arrowUp';
+import CaretDownIcon from '../icons/caretDownIcon/caretDownIcon';
+import ArrowUpIcon from '../icons/arrowUpIcon/arrowUpIcon';
 import styles from './assistant.module.css';
 
 const Assistant = () => {
@@ -10,20 +10,12 @@ const Assistant = () => {
     const [ inputValue, setInputValue ] = useState('');
     const [ isFocusInput, setIsFocusInput ] = useState(false);
 
-    // const inputStyle = () => {
-    //     let res;
-
-    //     if (isFocusInput) {
-    //         res = styles.focus;
-    //     }
-    // }
-
     return (
         <div className={styles.assistant}>
             <div className={styles.header}>
                 <h3 className={styles.title}>Ассистент</h3>
                 <button onClick={() => setIsOpen(!isOpen)}>
-                    {!isOpen ? <CaretUp /> : <CaretDown />} 
+                    {!isOpen ? <CaretUp /> : <CaretDownIcon />} 
                 </button>
             </div>
             {isOpen && 
@@ -50,7 +42,7 @@ const Assistant = () => {
                     />
                     {inputValue &&
                     <button className={styles.send}>
-                        <ArrowUp />
+                        <ArrowUpIcon />
                     </button>}
                 </label>
             </div>}

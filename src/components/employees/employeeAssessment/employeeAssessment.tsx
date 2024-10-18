@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Employee } from '../../../utils/types';
-import Badge from '../../icons/badge/badge';
+import BadgeIcon from '../../icons/badgeIcon/badgeIcon';
 import styles from './employeeAssessment.module.css';
 
 type EmployeeAssessmentProps = {
@@ -12,7 +12,7 @@ const EmployeeAssessment: FC<EmployeeAssessmentProps> = ({employee}) => {
     return (
         <div className={styles.content}>
             <div className={styles.summary}>
-                <Badge />
+                <BadgeIcon />
                 В процессе оценки руководителем
             </div>
             <div className={styles.assessments}>

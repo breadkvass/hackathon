@@ -2,7 +2,7 @@ import { FC, useState, useMemo, useContext, FormEvent } from 'react';
 import { Team } from '../../../utils/types';
 import { Select } from 'antd';
 import { EmployeesContext } from '../../../utils/employeesContext';
-import UnWrap from '../../icons/unWrap/unWrap';
+import UnWrapIcon from '../../icons/unWrapIcon/unWrapIcon';
 import styles from './addEmployeeToTeamForm.module.css';
 import { DefaultOptionType } from 'antd/es/select';
 import { ModalContext } from '../../../hooks/useModal/useModalProvider';
@@ -110,7 +110,7 @@ const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
                             <p className={styles.type}>Должность</p>
                             <Select
                                 value={jobFilter}
-                                suffixIcon={<UnWrap />}
+                                suffixIcon={<UnWrapIcon />}
                                 style={{ width: '204px', height: "48px" }}
                                 onChange={(value) => setJobFilter(value)}
                                 placeholder='Должность'
@@ -121,7 +121,7 @@ const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
                             <p className={styles.type}>Грейд</p>
                             <Select
                                 value={gradeFilter}
-                                suffixIcon={<UnWrap />}
+                                suffixIcon={<UnWrapIcon />}
                                 style={{ width: '204px', height: "48px" }}
                                 onChange={(value) => setGradeFilter(value)}
                                 placeholder='Грейд'
@@ -132,7 +132,7 @@ const AddEmployeeToTeamForm: FC<AddEmployeeToTeamFormProps> = ({team}) => {
                     <label className={styles.label}>
                         <p className={styles.type}>Сотрудник</p>
                         <Select
-                            suffixIcon={<UnWrap />}
+                            suffixIcon={<UnWrapIcon />}
                             style={{ width: '100%', height: "48px" }}
                             onChange={handleChange}
                             placeholder='Сотрудник'

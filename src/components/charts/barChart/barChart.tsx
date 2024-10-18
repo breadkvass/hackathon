@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import { Bar } from '@ant-design/plots';
 import ChartLayout from '../chartLayout/chartLayout';
-import { FC } from 'react';
 
 type BarChartProps = {
     value?: { skills?: string; assessment?: number; person?: string; }[];

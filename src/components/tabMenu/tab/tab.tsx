@@ -1,11 +1,11 @@
 import { FC, MouseEventHandler, useContext } from 'react';
-import UserIcon from '../../icons/userIcon/userIcon';
-import TeamsIcon from '../../icons/teamsIcon/teamsIcon';
-import UnWrap from '../../icons/unWrap/unWrap';
-import RollUp from '../../icons/rollUp/rollUp';
-import styles from './tab.module.css';
 import { TeamsContext } from '../../../utils/teamsContext';
 import { useNavigate } from 'react-router-dom';
+import UserIcon from '../../icons/userIcon/userIcon';
+import TeamsIcon from '../../icons/teamsIcon/teamsIcon';
+import UnWrapIcon from '../../icons/unWrapIcon/unWrapIcon';
+import RollUp from '../../icons/rollUp/rollUp';
+import styles from './tab.module.css';
 
 type TabProps = {
     tab: 'teams' | 'employees';
@@ -15,22 +15,17 @@ type TabProps = {
     onItemClickHandler?: MouseEventHandler;
 }
 
-const Tab: FC<TabProps> = ({tab, items, onTabClickHandler, selectedTab, onItemClickHandler}) => {
+const Tab: FC<TabProps> = ({tab, onTabClickHandler, selectedTab, onItemClickHandler}) => {
     const [ teams ] = useContext(TeamsContext);
     const navigate = useNavigate();
     const icon = tab === 'teams' ? <TeamsIcon /> : <UserIcon />;
     const name = tab === 'teams' ? 'Команды' : 'Сотрудники';
-    const arrow = tab === selectedTab ? <RollUp /> : <UnWrap />;
+    const arrow = tab === selectedTab ? <RollUp /> : <UnWrapIcon />;
     const style = tab === selectedTab ? styles.button + ' ' + styles.selected : styles.button;
-
-    // const selectTeam = (teamId: number) => {
-    //     navigate(`/teams/${teamId}`)
-    // }
 
     const onTeamClickHandler = (teamId: number) => {
         onItemClickHandler;
         navigate(`/teams/${teamId}`);
-        
     }
 
     return (
@@ -49,8 +44,7 @@ const Tab: FC<TabProps> = ({tab, items, onTabClickHandler, selectedTab, onItemCl
                         </li>
                     )}
                 </ul>
-            }
-                                
+            }                
         </li>
     )
 }

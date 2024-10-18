@@ -1,17 +1,17 @@
 import { FC, useContext, useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Input, Table } from "antd";
 import { Tabs } from 'antd';
 import { Select } from 'antd';
 import { dataColumns } from '../../../data/dataEmployees';
 import { EmployeesContext } from '../../../utils/employeesContext';
-import SearchIcon from '../../icons/loupe/loupe';
-import UnWrap from '../../icons/unWrap/unWrap';
+import SearchIcon from '../../icons/searchIcon/searchIcon';
+import UnWrapIcon from '../../icons/unWrapIcon/unWrapIcon';
 import SummaryContainer from '../../summaryContainer/summaryContainer';
 import EmployeeAssessment from '../employeeAssessment/employeeAssessment';
 import EmployeeAnalytics from '../employeeAnalytics/employeeAnalytics';
 import IPR from '../../IPR/IPR';
 import styles from './employeesInfo.module.css';
-import { useNavigate } from 'react-router-dom';
 
 type SelectedEmplyeeInfoProps = {
     selectedEmployee: string;
@@ -106,14 +106,14 @@ const AllEmployeesInfo = () => {
                         onChange={(e) => setSearchValue(e.target.value)}
                         prefix={<SearchIcon />} />
                     <Select
-                        suffixIcon={<UnWrap />}
+                        suffixIcon={<UnWrapIcon />}
                         className={styles.dropdown}
                         onChange={(value) => setTeamFilter(value)}
                         placeholder='Команда'
                         options={teamsOptions}
                     />
                     <Select
-                        suffixIcon={<UnWrap />}
+                        suffixIcon={<UnWrapIcon />}
                         className={styles.dropdown}
                         onChange={(value) => setJobFilter(value)}
                         placeholder='Должность'
@@ -130,7 +130,7 @@ const AllEmployeesInfo = () => {
                         return {
                           onClick: () => {navigate(`${record.key}`)},
                         };
-                      }}
+                    }}
                 />
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { useEffect, useCallback, SyntheticEvent, ReactNode, FC } from 'react';
 import ModalOverlay from "../modalOverlay/modalOverlay";
 import styles from "./modal.module.css";
-import Cross from "../icons/cross/cross";
+import CrossIcon from "../icons/crossIcon/crossIcon";
 
 type ModalProps = {
     title?: string;
@@ -35,7 +35,7 @@ const Modal: FC<ModalProps> = ({closeHandler, children, title}) => {
     return (
         <ModalOverlay closeHandler={closeHandler}>
             <div className={styles.modal} onClick={stopPropagation}>
-                <button className={styles.close} onClick={onClickHandler}><Cross /></button>
+                <button className={styles.close} onClick={onClickHandler}><CrossIcon /></button>
                 <h2 className={styles.title}>{title}</h2>
                 <div className={styles.content}>
                     {children}

@@ -1,5 +1,5 @@
 import { Select } from 'antd';
-import UnWrap from '../icons/unWrap/unWrap';
+import UnWrapIcon from '../icons/unWrapIcon/unWrapIcon';
 import styles from './IPR.module.css';
 import { Employee } from '../../utils/types';
 import { FC, useState } from 'react';
@@ -19,7 +19,7 @@ const IPR: FC<IPRProps> = ({employee}) => {
         <div className={styles.ipr}>
             <div className={styles.selects}>
                 <Select
-                    suffixIcon={<UnWrap />}
+                    suffixIcon={<UnWrapIcon />}
                     className={styles.dropdown}
                     onChange={(value) => setYear(value)}
                     placeholder='Год'
@@ -29,7 +29,7 @@ const IPR: FC<IPRProps> = ({employee}) => {
                     ]}
                 />
                 <Select
-                    suffixIcon={<UnWrap />}
+                    suffixIcon={<UnWrapIcon />}
                     className={styles.dropdown}
                     onChange={(value) => setKvartal(value)}
                     placeholder='Квартал'
@@ -47,22 +47,22 @@ const IPR: FC<IPRProps> = ({employee}) => {
                     <div className={styles.row}>
                         <p className={styles.kvartal}>4 квартал</p>
                         <p className={styles.status + ' ' + styles.create}>Создать</p>
-                        <UnWrap />
+                        <UnWrapIcon />
                     </div>
                     <div className={styles.row}>
                         <p className={styles.kvartal}>3 квартал</p>
                         <p className={styles.status + ' ' + styles.result}>Пройдено</p>
-                        <UnWrap />
+                        <UnWrapIcon />
                     </div>
                     <div className={styles.row}>
                         <p className={styles.kvartal}>2 квартал</p>
                         <p className={styles.status + ' ' + styles.result}>Пройдено</p>
-                        <UnWrap />
+                        <UnWrapIcon />
                     </div>
                     <div className={styles.row}>
                         <p className={styles.kvartal}>1 квартал</p>
                         <p className={styles.status + ' ' + styles.result}>Пройдено</p>
-                        <UnWrap />
+                        <UnWrapIcon />
                     </div>
                 </div>
             </div>

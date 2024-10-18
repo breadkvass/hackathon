@@ -4,7 +4,7 @@ import Logo from '../../assets/images/logo.png';
 import Search from '../../assets/images/icons/search.svg';
 import Bell from '../../assets/images/icons/bell-simple.svg';
 import Avatar from '../../assets/images/avatar.jpeg';
-import Badge from '../../assets/images/icons/badge.svg';
+import BadgeIcon from '../../assets/images/icons/badge.svg';
 import styles from './header.module.css';
 
 type HeaderProps = {
@@ -30,7 +30,7 @@ const Header: FC<HeaderProps> = (isAuth, isNotifications) => {
                         </div>
                         <div className={styles.notifications}>
                             <img className={styles.headerIcon} src={Bell} />
-                            {isNotifications && <img className={styles.badge} src={Badge}/>}
+                            {isNotifications && <img className={styles.badge} src={BadgeIcon}/>}
                         </div>
                         <div className={styles.profile} onClick={clickHandler}>
                             <img className={styles.avatar} src={Avatar} />

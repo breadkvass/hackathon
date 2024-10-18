@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import Info from '../icons/info/info';
-import Badge from '../icons/badge/badge';
+import InfoIcon from '../icons/infoIcon/infoIcon';
+import BadgeIcon from '../icons/badgeIcon/badgeIcon';
 import styles from './summaryContainer.module.css';
 
 type SummaryContainerProps = {
@@ -17,9 +17,9 @@ const SummaryContainer: FC<SummaryContainerProps> = ({result, type, factor}) => 
             <p className={styles.number}>{result}</p>
             :
             <div className={styles.summary}>
-                <Badge style={styles.margin}/>
+                <BadgeIcon style={styles.margin}/>
                 <p className={styles.number}>{result}</p>
-                <Info />
+                <InfoIcon />
             </div>
             }
             <p className={styles.type}>{type}</p>

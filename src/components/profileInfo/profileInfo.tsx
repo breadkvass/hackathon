@@ -1,8 +1,8 @@
 import { Switch } from 'antd';
 import Avatar from '../../assets/images/avatar.jpeg';
-import Pencil from '../icons/pencil/pencil';
+import PencilIcon from '../icons/pencilIcon/pencilIcon';
 import styles from './profileInfo.module.css';
-import UnWrap from '../icons/unWrap/unWrap';
+import UnWrapIcon from '../icons/unWrapIcon/unWrapIcon';
 
 const ProfileInfo = () => {
     
@@ -14,7 +14,7 @@ const ProfileInfo = () => {
                     <div className={styles.avatar}>
                         <img className={styles.photo} src={Avatar} />
                         <button className={styles.changeAvatar}>
-                            <Pencil />
+                            <PencilIcon />
                             Изменить фото
                         </button>
                     </div>
@@ -83,7 +83,7 @@ const ProfileInfo = () => {
                         <div className={styles.notification}>
                             <p className={styles.notificationType}>Время уведомлений</p>
                             <p className={styles.parameter}>с 8:00 до 16:00</p>
-                            <UnWrap />
+                            <UnWrapIcon />
                         </div>
                         <div className={styles.notification}>
                             <p className={styles.notificationType}>Синхрозировать с календарем</p>
@@ -96,7 +96,7 @@ const ProfileInfo = () => {
                         <div className={styles.notification}>
                             <p className={styles.notificationType}>Сообщать о коэф. стресса в команде</p>
                             <p className={styles.parameter}>выше 2.5</p>
-                            <UnWrap />
+                            <UnWrapIcon />
                         </div>
                     </div>
                 </div>

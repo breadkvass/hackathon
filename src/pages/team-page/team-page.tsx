@@ -1,20 +1,18 @@
-import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Tabs } from 'antd';
+import { Team } from '../../utils/types';
+import { getTeam } from '../../utils/api';
 import Header from '../../components/header/header';
 import Layout from '../../components/layout/layout';
 import TabMenu from '../../components/tabMenu/tabMenu';
-import styles from './team-page.module.css';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Team } from '../../utils/types';
-import { getTeam } from '../../utils/api';
 import SummaryContainer from '../../components/summaryContainer/summaryContainer';
-import { Tabs } from 'antd';
 import TeamAnalytics from '../../components/teams/teamAnalytics/teamAnalytics';
 import TeamEmployees from '../../components/teams/teamEmployees/teamEmployees';
 import TeamEmployeesShedule from '../../components/teams/teamEmployeesShedule/teamEmployeesShedule';
-import { TeamsContext } from '../../utils/teamsContext';
+import styles from './team-page.module.css';
 
 const TeamPage = () => {
-    const [ teams ] = useContext(TeamsContext);
     let { id } = useParams<string>();
     const navigate = useNavigate();
     const [ team, setTeam ] = useState<Team>();
@@ -74,7 +72,7 @@ const TeamPage = () => {
         if (team) {
             setSelectedInfo(team.name)
         }
-    },[teamId])
+    }, [teamId])
 
     return (
         <Layout>

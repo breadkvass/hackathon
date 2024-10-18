@@ -1,8 +1,8 @@
 import { FC, useState, useMemo, useContext} from 'react';
 import { Select, Table } from 'antd';
 import { Team } from '../../../utils/types';
-import UnWrap from '../../icons/unWrap/unWrap';
-import Plus from '../../icons/plus/plus';
+import UnWrapIcon from '../../icons/unWrapIcon/unWrapIcon';
+import PlusIcon from '../../icons/plusIcon/plusIcon';
 import Column from 'antd/es/table/Column';
 import styles from './teamEmployees.module.css';
 import AddEmployeeToTeamForm from '../addEmployeeToTeamForm/addEmployeeToTeamForm';
@@ -87,14 +87,14 @@ const TeamEmployees: FC<TeamAnalyticsProps> = ({team}) => {
         <div className={styles.analytics}>
             <div className={styles.top}>
                 <Select 
-                    suffixIcon={<UnWrap />}
+                    suffixIcon={<UnWrapIcon />}
                     className={styles.dropdown}
                     onChange={jobFilterChangeHandler}
                     placeholder='Должность'
                     options={jobsOptions}
                 />
                 <button className={styles.add} onClick={addEmployeeButtonHandler}>
-                    <Plus />
+                    <PlusIcon />
                     Добавить сотрудника
                 </button>
             </div>

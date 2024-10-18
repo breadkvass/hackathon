@@ -1,5 +1,5 @@
-import { Column } from '@ant-design/plots';
 import { FC } from 'react';
+import { Column } from '@ant-design/plots';
 import ChartLayout from '../chartLayout/chartLayout';
 
 type ColumnChartProps = {
@@ -15,7 +15,6 @@ type ColumnChartProps = {
 }
 
 const ColumnChart: FC<ColumnChartProps> = ({ value, colors, maxY, type, width }) => {
-
     const config = {
         data: value,
         xField: 'kvartal',
@@ -36,6 +35,7 @@ const ColumnChart: FC<ColumnChartProps> = ({ value, colors, maxY, type, width })
             }
         },
     };
+
     return (
         <ChartLayout type={type} >
             <Column {...config} />

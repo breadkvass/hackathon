@@ -1,4 +1,4 @@
-import ThreeDotsCircle from "../components/icons/threeDotsCircle/threeDotsCircle";
+import ThreeDotsCircleIcon from "../components/icons/threeDotsCircleIcon/threeDotsCircleIcon";
 
 export const dataSource = [
     {
@@ -10,7 +10,7 @@ export const dataSource = [
       soft: 4.24,
       bus: 'нет',
       compliance: 1.0,
-      todo: <ThreeDotsCircle />
+      todo: <ThreeDotsCircleIcon />
     },
     {
       key: '2',
@@ -21,7 +21,7 @@ export const dataSource = [
       soft: 3.95,
       bus: 'нет',
       compliance: 0.9,
-      todo: <ThreeDotsCircle />
+      todo: <ThreeDotsCircleIcon />
     },
     {
       key: '3',
@@ -32,7 +32,7 @@ export const dataSource = [
       soft: 3.82,
       bus: 'нет',
       compliance: 0.95,
-      todo: <ThreeDotsCircle />
+      todo: <ThreeDotsCircleIcon />
     },
     {
       key: '4',
@@ -43,7 +43,7 @@ export const dataSource = [
       soft: 4.17,
       bus: 'нет',
       compliance: 0.85,
-      todo: <ThreeDotsCircle />
+      todo: <ThreeDotsCircleIcon />
     },
     {
       key: '5',
@@ -54,7 +54,7 @@ export const dataSource = [
       soft: 4.37,
       bus: 'да',
       compliance: 0.80,
-      todo: <ThreeDotsCircle />
+      todo: <ThreeDotsCircleIcon />
     },
   ];
   

@@ -1,5 +1,5 @@
-import { Line, LineConfig } from '@ant-design/plots';
 import { FC } from 'react';
+import { Line, LineConfig } from '@ant-design/plots';
 import ChartLayout from '../chartLayout/chartLayout';
 
 type LineChartProps = {
@@ -39,8 +39,6 @@ const LineChart: FC<LineChartProps> = ({value, maxY, type, width }) => {
         <Line {...config}  />
     </ChartLayout>
   )
-
-      
 };
 
 export default LineChart;

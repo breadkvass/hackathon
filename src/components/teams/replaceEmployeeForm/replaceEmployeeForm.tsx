@@ -5,7 +5,7 @@ import { Employee, Team } from '../../../utils/types';
 import { EmployeesContext } from '../../../utils/employeesContext';
 import { ModalContext } from '../../../hooks/useModal/useModalProvider';
 import { updateEmployee } from '../../../utils/api';
-import UnWrap from '../../icons/unWrap/unWrap';
+import UnWrapIcon from '../../icons/unWrapIcon/unWrapIcon';
 import styles from './replaceEmployeeForm.module.css';
 
 type ReplaceEmployeeFormProps = {
@@ -108,7 +108,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employeeToDelete, te
                             <p className={styles.type}>Из какой команды</p>
                             <Select
                                 value={teamFilter}
-                                suffixIcon={<UnWrap />}
+                                suffixIcon={<UnWrapIcon />}
                                 style={{ width: '204px', height: "48px" }}
                                 onChange={(value) => setTeamFilter(value)}
                                 placeholder='Должность'
@@ -119,7 +119,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employeeToDelete, te
                             <p className={styles.type}>Грейд</p>
                             <Select
                                 value={jobFilter}
-                                suffixIcon={<UnWrap />}
+                                suffixIcon={<UnWrapIcon />}
                                 style={{ width: '204px', height: "48px" }}
                                 onChange={(value) => setJobFilter(value)}
                                 placeholder='Грейд'
@@ -130,7 +130,7 @@ const ReplaceEmployeeForm: FC<ReplaceEmployeeFormProps> = ({employeeToDelete, te
                     <label className={styles.label}>
                         <p className={styles.type}>Сотрудник</p>
                         <Select
-                            suffixIcon={<UnWrap />}
+                            suffixIcon={<UnWrapIcon />}
                             style={{ width: '100%', height: "48px" }}
                             onChange={handleChange}
                             placeholder='Сотрудник'

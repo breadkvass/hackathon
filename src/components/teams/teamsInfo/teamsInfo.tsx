@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
 import { Tabs } from 'antd';
-import Plus from '../../icons/plus/plus';
+import PlusIcon from '../../icons/plusIcon/plusIcon';
 import SummaryContainer from '../../summaryContainer/summaryContainer';
 import TeamCard from '../teamCard/teamCard';
 import TeamAnalytics from '../teamAnalytics/teamAnalytics';
@@ -34,7 +34,7 @@ const AllTeamsInfo = () => {
                 <div className={styles.top}>
                     <h1 className={styles.title}>Команды</h1>
                     <button className={styles.create}>
-                        <Plus />
+                        <PlusIcon />
                         Создать команду
                     </button>
                 </div>
