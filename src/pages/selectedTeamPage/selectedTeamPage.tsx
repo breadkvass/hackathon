@@ -99,7 +99,6 @@ const SelectedTeamPage = () => {
             return styles.green;
         }
     }
-    console.log(team?.employee_count);
 
     useEffect(() => {
         getTeam(teamId)
