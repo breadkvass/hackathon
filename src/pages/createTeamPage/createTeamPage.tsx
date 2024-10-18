@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ChangeEvent, FC, useContext, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useMemo, useState } from 'react';
 import { EmployeesContext } from '../../utils/employeesContext';
 import Layout from '../../components/layout/layout';
 import Header from '../../components/header/header';
@@ -10,7 +10,6 @@ import StepperLine from '../../components/icons/stepperLine/stepperLine';
 import SearchIcon from '../../components/icons/searchIcon/searchIcon';
 import UnWrapIcon from '../../components/icons/unWrapIcon/unWrapIcon';
 import { dataColumns } from '../../data/dataEmployees';
-import AllEmployeesInfo from '../../components/employees/allEmployeesInfo/allEmployeesInfo';
 import { getEmployees } from '../../utils/api';
 
 const CreateTeamPage = () => {
@@ -91,11 +90,9 @@ type EmployeeRecord = {
 
 const FirstStep = () => {
     const [ employees ] = useContext(EmployeesContext);
-    const navigate = useNavigate();
     const [ jobFilter, setJobFilter ] = useState<string | null>('');
     const [ teamFilter, setTeamFilter ] = useState('');
     const [ searchValue, setSearchValue ] = useState('');
-    const chekedEmployees = [];
 
     const employeesData: EmployeeRecord[] = employees.map((employee, i) => ({
         key: employee.id,
@@ -175,11 +172,6 @@ const FirstStep = () => {
                     dataSource={filtredData}
                     columns={dataColumns} 
                     pagination={false}
-                    onRow={(record) => {
-                        return {
-                        //   onClick: () => {navigate(`${record.key}`)},
-                        };
-                    }}
                 />
             </div>
         </div>
