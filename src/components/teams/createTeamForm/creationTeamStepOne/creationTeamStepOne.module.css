@@ -1,0 +1,92 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.firstForm {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.stepDescription {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.text {
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 500;
+    width: 300px;
+}
+
+.buttons {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.selectedUsers {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 12px 16px;
+}
+
+.selectedUsers svg path {
+    fill: var(--secondary-normal);
+}
+
+.selected {
+    color: var(--secondary-normal);
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 500;
+}
+
+.submit {
+    background-color: var(--accent-normal);
+    color: var(--color-white);
+    width: 232px;
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 500;
+    border-radius: 12px;
+    padding: 12px 0;
+}
+
+.submit:disabled {
+    background-color: var(--color-gray);
+    color: var(--additional-not-selected);
+    cursor: default;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search {
+    width: 100%;
+    border: 0;
+    height: 48px;
+}
+
+.selects {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.dropdown {
+    width: 270px;
+    height: 48px;
+}

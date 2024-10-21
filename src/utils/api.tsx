@@ -90,3 +90,11 @@ export const updateEmployee = (user_in_team: number, new_user: number, teamId: n
     body: JSON.stringify({user_in_team, new_user}),
   }).then(checkResponse);
 }
+
+export const createTeam = (name: string, employees: number[]) => {
+  return fetch(`${URL}/v1/teams/`, {
+    method: "POST",
+    headers: headersWithAuthorizeFn(),
+    body: JSON.stringify({name, employees}),
+  }).then(checkResponse);
+}

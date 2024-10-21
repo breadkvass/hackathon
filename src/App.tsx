@@ -9,7 +9,7 @@ import EmployeesPage from "./pages/employeesPage/employeesPage";
 import ProfilePage from "./pages/profilePage/profilePage";
 import SelectedEmployeePage from "./pages/selectedEmployeePage/selectedEmployeePage";
 import SelectedTeamPage from "./pages/selectedTeamPage/selectedTeamPage";
-import CreateTeamPage from "./pages/createTeamPage/createTeamPage";
+import CreateTeamPage from "./components/teams/createTeamForm/createTeamForm";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

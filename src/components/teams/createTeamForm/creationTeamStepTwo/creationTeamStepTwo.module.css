@@ -1,0 +1,112 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.firstForm {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.stepDescription {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.text {
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 500;
+    width: 300px;
+}
+
+.buttons {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.previous {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--secondary-normal);
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 500;
+    align-items: center;
+}
+
+.previous svg path {
+    fill: var(--secondary-normal);
+}
+
+.submit {
+    background-color: var(--accent-normal);
+    color: var(--color-white);
+    width: 232px;
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    font-weight: 500;
+    border-radius: 12px;
+    padding: 12px 0;
+}
+
+.submit:disabled {
+    background-color: var(--color-gray);
+    color: var(--additional-not-selected);
+    cursor: default;
+}
+
+.team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 448px;
+}
+
+.inputs {
+    width: 448px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.characteristic {
+    font-size: var(--text-b1-size);
+    line-height: var(--text-b1-height);
+    padding: 0;
+    margin: 0;
+}
+
+.containers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 536px;
+}
+
+.green circle {
+    fill: var(--system-success);
+}
