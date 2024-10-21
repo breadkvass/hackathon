@@ -35,7 +35,7 @@ const SelectedEmployeePage = () => {
             key: "3",
             label: "ИПР",
             children: <IPR />,
-          },
+        },
       ];
 
     const setSelected = (tab: 'teams' | 'employees') => {
@@ -51,8 +51,7 @@ const SelectedEmployeePage = () => {
     }
 
     useEffect(() => {
-        getEmployee(employeeId)
-        .then(res => setEmployee(res));
+        getEmployee(employeeId).then(res => setEmployee(res));
     },[])
 
     const badgeStressStyle = () => {

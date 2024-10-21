@@ -11,4 +11,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
+    height: max-content;
+}
+
+.graphic {
+    height: max-content;
 }

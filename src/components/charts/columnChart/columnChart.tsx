@@ -12,9 +12,11 @@ type ColumnChartProps = {
     maxY: number;
     type: string;
     width: number;
+    style?: string;
+    height?: number;
 }
 
-const ColumnChart: FC<ColumnChartProps> = ({ value, colors, maxY, type, width }) => {
+const ColumnChart: FC<ColumnChartProps> = ({ value, colors, maxY, type, width, style, height }) => {
     const config = {
         data: value,
         xField: 'kvartal',
@@ -22,6 +24,7 @@ const ColumnChart: FC<ColumnChartProps> = ({ value, colors, maxY, type, width })
         colorField: 'skills',
         group: true,
         width: width,
+        height: height,
         style: {
             inset: 0,
         },
@@ -37,7 +40,7 @@ const ColumnChart: FC<ColumnChartProps> = ({ value, colors, maxY, type, width })
     };
 
     return (
-        <ChartLayout type={type} >
+        <ChartLayout type={type} style={style} >
             <Column {...config} />
         </ChartLayout>
     )

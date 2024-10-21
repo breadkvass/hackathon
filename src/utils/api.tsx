@@ -98,3 +98,11 @@ export const createTeam = (name: string, employees: number[]) => {
     body: JSON.stringify({name, employees}),
   }).then(checkResponse);
 }
+
+export const getEmployeeSkills = async (id: number) => {
+  return await fetch(`${URL}/v1/employees/${id}/analytics/`, {
+    headers: headersWithAuthorizeFn(),
+    method: "GET",
+  })
+  .then(checkResponse);
+}

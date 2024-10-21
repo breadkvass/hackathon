@@ -12,3 +12,7 @@
     flex-wrap: wrap;
     gap: 24px;
 }
+
+.table {
+    width: 686px;
+}
