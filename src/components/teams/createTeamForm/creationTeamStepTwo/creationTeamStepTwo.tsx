@@ -7,18 +7,19 @@ import { Select } from 'antd';
 import UnWrapIcon from '../../../icons/unWrapIcon/unWrapIcon';
 import { DefaultOptionType } from 'antd/es/select';
 import SummaryContainer from '../../../summaryContainer/summaryContainer';
+import { createTeam } from '../../../../utils/api';
 
 type SecondStepProps = {
     backToStepOne: any;
 }
 
 const CreationTeamStepTwo: FC<SecondStepProps> = ({backToStepOne}) => {
-    const [ , { setTeamName, setTeamLeadId } ] = useContext(CreationTeamContext);
+    const [ newTeam, { setTeamName, setTeamLeadId } ] = useContext(CreationTeamContext);
     const [ employees ] = useContext(EmployeesContext);
     const [ teamNameValue, setTeamNameValue ] = useState('');
     const [ selectedTeamLead, setSelectedTeamLead ] = useState<DefaultOptionType>();
 
-    const selectedTeamId = selectedTeamLead?.id
+    const selectedTeamLeadId = selectedTeamLead?.id
 
     const handleChange =  (_:string, option: DefaultOptionType) => {
         setSelectedTeamLead(option);
@@ -27,7 +28,9 @@ const CreationTeamStepTwo: FC<SecondStepProps> = ({backToStepOne}) => {
     const onSubmitHandler = async (e: FormEvent) => {
         e.preventDefault();
         setTeamName(teamNameValue);
-        setTeamLeadId(selectedTeamId);
+        setTeamLeadId(selectedTeamLeadId);
+        console.log(teamNameValue, newTeam.membersId);
+        createTeam(teamNameValue, newTeam.membersId);
     }
 
     const onClickPreviousHandler = () => {
