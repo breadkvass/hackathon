@@ -43,3 +43,9 @@ React, TypeScript, Vite
 Библиотеки Ant Design, Ant Design Charts
 
 Шрифт <a href="https://fonts.google.com/specimen/Manrope">Manrope</a>
+
+## Результаты:
+1 место в индивидуальном зачете среди фронтенд-разработчиков
+
+3 место в командном зачете
+
