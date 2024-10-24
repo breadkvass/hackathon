@@ -29,7 +29,6 @@ const CreationTeamStepTwo: FC<SecondStepProps> = ({backToStepOne}) => {
         e.preventDefault();
         setTeamName(teamNameValue);
         setTeamLeadId(selectedTeamLeadId);
-        console.log(teamNameValue, newTeam.membersId);
         createTeam(teamNameValue, newTeam.membersId);
     }
 

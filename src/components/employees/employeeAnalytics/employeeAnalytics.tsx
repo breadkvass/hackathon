@@ -115,8 +115,6 @@ const EmployeeAnalytics: FC<EmployeeAnalyticsProps> = ({employee}) => {
         }
     ];
 
-    console.log(dataHard);
-
     return (
         <div className={styles.analytics}>
             <h3 className={styles.title}>2024 год</h3>
