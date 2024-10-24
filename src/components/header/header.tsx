@@ -12,7 +12,7 @@ type HeaderProps = {
     isNotifications?: boolean;
 }
 
-const Header: FC<HeaderProps> = (isAuth, isNotifications) => {
+const Header: FC<HeaderProps> = ({isNotifications, isAuth}) => {
     const navigate = useNavigate();
 
     const clickHandler = () => {
@@ -23,7 +23,7 @@ const Header: FC<HeaderProps> = (isAuth, isNotifications) => {
         <header className={styles.header}>
             <div className={styles.content}>
                 <img className={styles.logo} src={Logo}/>
-                {isAuth &&
+                {isAuth === true &&
                     <div className={styles.right}>
                         <div className={styles.notifications}>
                             <img className={styles.headerIcon} src={Search} />
